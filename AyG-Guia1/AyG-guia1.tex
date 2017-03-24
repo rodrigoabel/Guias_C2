@@ -1,0 +1,262 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[left=1.5cm,top=2cm,right=2.5cm,bottom=4cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[activeacute,spanish]{babel}
+\usepackage{multirow}	% Para poder unir filas en las tablas
+\usepackage{colortbl}	% Para colorear tablas
+\usepackage{latexsym,amssymb,oldlfont,amsmath}
+\usepackage{graphicx,graphics}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{dsfont} %para poner numero reales
+
+
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\si}{{\mathcal S}^n}
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % Cambia formato salida numeracion equation
+\makeatletter\@addtoreset {equation}{section} \makeatother % Tambien se usa
+\renewcommand{\baselinestretch}{1.3}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\definecolor{midnightblue}{rgb}{0.1,0.1,0.44}
+
+
+\newcommand{\dis}{\displaystyle}
+\renewcommand{\theenumii}{\arabic{enumii}}
+
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\M{\mathcal{M}_n(\mathbb{R})}
+\def\sin{\operatorname{sen}}
+\def\e{\operatorname{e}}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+
+
+
+\usepackage{etoolbox,fancyhdr,xcolor}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0.5pt}
+\pagestyle{fancy}
+\headheight=60pt %para cambiar el tamaño del encabezadox
+\fancyhead[L] %la "L" indica a la izquierda
+{
+\begin{minipage}{6cm}
+\includegraphics[width=0.9\textwidth]{logo_udp.eps}
+\end{minipage}
+}
+
+%\fancyhead[C]
+%{
+%\textbf{Cálculo II - Guía 1}
+%}
+
+
+%\fancyhead[R] %la "L" indica a la izquierda
+%{
+
+%}
+%\begin{minipage}{4cm}
+%\small %tamaño de letra pequeño
+%{
+%\textsf
+%{
+%Universidad de Chile\\
+%...}}
+%\end{minipage}}
+
+
+
+
+\fancyfoot[C]{\thepage\ de \pageref{LastPage}}
+%Página \thepage\ de \pageref{LastPage}}% Páginas Pares numeradas a la derecha
+%\fancyfoot[LO]{\thepage} % Páginas Impares numeradas a la izquierda
+
+\title{AyG-Guia1}
+
+\begin{document}
+
+\begin{center}
+\emph{Álgebra y Geometría} \\
+\emph{Guía Nº1 Ejercicios Resueltos} \\
+\emph{Primer Semestre 2017} \\
+\emph{Instituto de Ciencias Básicas}
+\end{center}
+
+
+\vspace{5mm}
+
+\textbf{Ejercicio:} Demuestre la siguiente ley de absorción: $p \vee (p \wedge q) \equiv p $ \\
+
+\textbf{Solución:} Se realiza una tabla de verdad.
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multicolumn{1}{|c|}{$p$} & \multicolumn{1}{c|}{$q$} & \multicolumn{1}{c|}{$p \wedge q$} & \multicolumn{1}{c|}{$p\vee (p\wedge q)$} \\
+\hline \hline
+\multicolumn{1}{|c|}{V} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{V} \\
+\hline
+\multicolumn{1}{|c|}{V} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{V} \\
+\hline
+\multicolumn{1}{|c|}{F} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{F} \\
+\hline
+\multicolumn{1}{|c|}{F} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{F} \\
+\hline
+\end{tabular}
+\end{center}
+
+Observe que la columna asociada a $p \vee (p \wedge q)$ coincide con la columna asociada a $p$. Así, la proposición $p\vee (p \wedge q)$ es equivalente a la proposición $p$.
+\vspace{5mm}
+
+
+
+
+
+
+
+\textbf{Ejercicio:} Demuestre la siguiente proposición compuesta:
+                    \[ \left[ \sim p \Rightarrow \sim (p \Rightarrow q)\right] \vee \left[ \left(p \wedge (p \Rightarrow q)\right) \Rightarrow p \right] \]
+                    es una tautología
+
+                    \begin{enumerate}
+                        \item[a)] mediante álgebra de proposiciones.
+                        \item[b)] mediante una tabla de verdad.
+                    \end{enumerate}
+
+\textbf{Solución:}
+
+    \begin{enumerate}
+        \item[a)] Simplificando:
+            \begin{align*}
+                       & \left[ \sim p \Rightarrow \sim (p \Rightarrow q)\right] \vee \left[ \left(p \wedge (p \Rightarrow q)\right) \Rightarrow p \right] \\
+                \equiv & \left[  p \vee \sim (p \Rightarrow q)\right] \vee \left[ \left(p \wedge (\sim p \vee q)\right) \Rightarrow p \right] \\
+                \equiv & \left[  p \vee \sim (\sim p \vee q)\right] \vee \left[ \left((p \wedge \sim p )  \vee (p \wedge q)\right) \Rightarrow p \right] \\
+                \equiv & \underbrace{\left[  p \vee ( p \wedge \sim q)\right]}_{p \hspace{2mm}\text{(ley absorción)}} \vee \left[ \left( F  \vee (p \wedge q)\right) \Rightarrow p \right] \\
+                \equiv & p \vee \left[ \left(p \wedge q\right) \Rightarrow p \right] \\
+                \equiv &p \vee \left[ \sim \left(p \wedge q\right) \vee p \right] \\
+                \equiv &p \vee \left[ \sim p \vee \sim q \vee  p \right] \\
+                \equiv &p \vee \left[ (\sim p \vee  p) \vee \sim q  \right] \\
+                \equiv &p \vee \left[ V \vee \sim q  \right] \\
+                \equiv &p \vee V \\
+                \equiv & V
+            \end{align*}
+            \newpage
+
+
+
+        \item[b)] Tabla de verdad:
+
+        \begin{center}
+        \begin{tabular}{|l|l|l|l|l|l|l|l|l|}
+            \hline
+            \multicolumn{1}{|c|}{$p$} & \multicolumn{1}{c|}{$q$} & \multicolumn{1}{c|}{$\sim p$}  & \multicolumn{1}{c|}{$p \Rightarrow q$} & \multicolumn{1}{c|}{$\sim(p \Rightarrow q)$} & \multicolumn{1}{c|}{$\sim p \Rightarrow \sim (p \Rightarrow q)$ ($\ast$)} & \multicolumn{1}{c|}{$p \wedge (p\Rightarrow q)$} & \multicolumn{1}{c|}{$\left(p \wedge (p \Rightarrow q)\right) \Rightarrow p$ ($\ast \ast$)}  & \multicolumn{1}{c|}{($\ast$) $\vee$ ($\ast \ast$)} \\
+            \hline
+            \multicolumn{1}{|c|}{V} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{V} \\
+            \hline
+            \multicolumn{1}{|c|}{V} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{V} \\
+            \hline
+            \multicolumn{1}{|c|}{F} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{V} \\
+            \hline
+            \multicolumn{1}{|c|}{F} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{F} & \multicolumn{1}{c|}{V} & \multicolumn{1}{c|}{V} \\
+            \hline
+        \end{tabular}
+        \end{center}
+
+    \end{enumerate}
+    \vspace{5mm}
+
+
+
+
+
+
+
+\textbf{Ejercicio:} Simplifique las expresiones:
+        \begin{enumerate}
+            \item[a)] $\displaystyle \sim \left[ (p \Rightarrow q) \wedge (\sim p \Rightarrow q) \right]$
+            \item[b)] $\displaystyle \left[ (p \Leftrightarrow \sim q) \wedge (q \wedge \sim p) \right]$
+        \end{enumerate}
+
+\textbf{Solución:}
+        \begin{enumerate}
+            \item[a)]
+                \begin{align*}
+                           & \sim \left[ (p \Rightarrow q) \wedge (\sim p \Rightarrow q) \right] \\
+                    \equiv & \sim \left[ (\sim p \vee q) \wedge (p \vee q) \right] \\
+                    \equiv & \sim \left[ (\sim p \wedge p) \vee q \right] \\
+                    \equiv & \sim \left[ F \vee q \right] \\
+                    \equiv & \sim q \\
+                \end{align*}
+
+            \item[b)]
+                \begin{align*}
+                           & \left[ (p \Leftrightarrow \sim q) \wedge (q \wedge \sim p) \right] \\
+                    \equiv & \left[ \Big( (p \Rightarrow \sim q) \wedge (\sim q \Rightarrow p) \Big) \wedge q \wedge \sim p \right] \\
+                    \equiv & (p \Rightarrow \sim q) \wedge (\sim q \Rightarrow p)  \wedge q \wedge \sim p \\
+                    \equiv & (\sim p \vee \sim q) \wedge \underbrace{(q \vee p)  \wedge q}_{q} \wedge \sim p \\
+                    \equiv & (\sim p \vee \sim q) \wedge q \wedge \sim p \\
+                    \equiv & \underbrace{(\sim p \vee \sim q) \wedge \sim p}_{\sim p} \wedge q \\
+                    \equiv & \sim p \wedge q
+                \end{align*}
+        \end{enumerate}
+        \newpage
+
+
+
+
+
+
+
+\textbf{Ejercicio:} Se sabe que la proposición $\displaystyle \left[ (q \Leftrightarrow p) \wedge \sim q \right] \Rightarrow (p\wedge \sim q) $ es falsa. Determine los valores de verdad de $p$ y $q$. \vspace{3mm}
+
+\textbf{Solución:}
+
+    Observe que la proposición consiste en una implicancia cuyo antecedente es $(q \Leftrightarrow p) \wedge \sim q$ y cuyo consecuente es $p \wedge \sim q$.
+
+    El único caso en que la implicancia entrega un resultado falso es que el antecedente sea verdadero y el consecuente sea falso. Entonces,
+
+    \begin{align*}
+                        &  \left[ (q \Leftrightarrow p) \wedge \sim q \right] \Rightarrow (p\wedge \sim q) \equiv F \\
+        \Leftrightarrow &  \left[ (q \Leftrightarrow p) \wedge \sim q \right] \equiv V  \hspace{2mm}  \wedge  \hspace{2mm}  (p \wedge \sim q) \equiv F \\
+        \Leftrightarrow &  \left[ q \Leftrightarrow p \equiv V  \wedge \sim q \equiv V \right] \hspace{2mm}  \wedge  \hspace{2mm}  (p \wedge \sim q) \equiv F \\
+        \Leftrightarrow &  \left[ q \Leftrightarrow p \equiv V  \wedge  q \equiv F \right] \hspace{2mm}  \wedge  \hspace{2mm}  (p \wedge \sim q) \equiv F \\
+        \Leftrightarrow &  (q \equiv F) \wedge ( q \Leftrightarrow p \equiv V ) \wedge   (p \wedge \sim q \equiv F) \\
+        \Leftrightarrow &  (q \equiv F) \wedge ( F \Leftrightarrow p \equiv V ) \wedge   (p \wedge \sim F \equiv F) \\
+        \Leftrightarrow &  (q \equiv F) \wedge ( p \equiv F ) \wedge   (p \wedge V \equiv F) \\
+        \Leftrightarrow &  (q \equiv F) \wedge ( p \equiv F )
+    \end{align*}
+
+    Luego, tanto $p$ como $q$ son falsas.
+    \vspace{5mm}
+
+
+
+
+
+
+
+
+\textbf{Ejercicio:} Se sabe que $\left[(p \wedge \sim q) \Rightarrow r \right] \Rightarrow (\sim p \vee \sim s)$ es falsa, y que $(\sim s \vee \sim r)$ es verdadera. Encuentre los valores de verdad de $p,q,r$ y $s$. \vspace{3mm}
+
+\textbf{Solución:}
+
+    De la primera proposición, se deduce que $(p \wedge \sim q) \Rightarrow r \equiv V$ y que $(\sim p \vee \sim s) \equiv F$.
+
+    Si $(\sim p \vee \sim s) \equiv F$ entonces $p \wedge s \equiv V$, por lo que $p\equiv V$ y $s\equiv V$.
+
+    Por otro lado, considerando que $s \equiv V$, la segunda proposición entrega como información que $(\sim V \vee \sim r) \equiv V$, es decir $\sim r \equiv V$, por lo que $r \equiv F$.
+
+    Finalmente, considerando estos valores de verdad, en conjunto con la primera proposición, se tiene que $(V \wedge \sim q) \Rightarrow F \equiv V$, es decir $\sim q \Rightarrow F \equiv V$. En otras palabras, $\sim q \equiv F$, y así $q \equiv V$.
+
+    En conclusión: $p,q,s$ son verdaderas, y $r$ es falsa.
+
+\end{document}

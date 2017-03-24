@@ -87,13 +87,13 @@
 %Página \thepage\ de \pageref{LastPage}}% Páginas Pares numeradas a la derecha
 %\fancyfoot[LO]{\thepage} % Páginas Impares numeradas a la izquierda
 
-\title{C2_Ay1_Ej3}
+\title{C2_Ay1_Ej4}
 
 \begin{document}
 
 \begin{center}
 Cálculo II\\
-Ayudantía Nº1 - Ejercicio Nº3\\
+Ayudantía Nº1 - Ejercicio Nº4\\
 Primer Semestre 2017
 \end{center}
 
@@ -101,38 +101,30 @@ Primer Semestre 2017
 
 
 
-3. Use integraci\'{o}n por partes para demostrar  la f\'{o}rmula de reducci\'{o}n $$ \int(\ln x)^ndx=x\big(\ln x\big)^n-n\int\big(\ln x\big)^{n-1}dx$$ y
-\'{u}sela para calcular $\dis \int(\ln x)^7dx$
+4. Obtenga una f\'{o}rmula de reducci\'{o}n para
+$$I_n= \int (\sin x)^n e^x dx\quad$$
 
 
 \vspace{5mm}
 
 Solución:
 
+$I_n= \dis \int (\sin x)^n e^x dx\quad$\\
 
- $\dis \int(\ln x)^ndx=x\big(\ln x\big)^n-n\int\big(\ln x\big)^{n-1}dx$\\
-
-Usando integración por partes:
+Usando integración por partes:(\textcolor{red}{1 punto por plantear la integración por partes})
 \begin{align*}
- u  &=  (\ln(x))^n  &   v  &= x \\
- du &= n\frac{(\ln(x))^{(n-1)} }{x} \, dx     &   dv &=  dx
+ u  &=  (\sin x)^n  &   v  &= e^x \\
+ du &= n(\sin x)^{(n-1)} \cos(x)  \, dx     &   dv &= e^x dx
 \end{align*}
 
 Obtenemos lo siguiente:
 \begin{align*}
- \dis \int(\ln x)^ndx &= x(\ln(x))^n - \dis \int x n\frac{(\ln(x))^{(n-1)} }{x} \, dx  \\
- 		&= x(\ln(x))^n - n\dis \int (\ln(x))^{(n-1)} \, dx
+ I_n &= \dis \int (\sin x)^n e^x dx\quad  \\
+ 		&= e^x(\sin x)^n  - n \dis \int e^x \cos(x)(\sin x)^{(n-1)}  \, dx
 \end{align*}
 
-De esta forma queda demostrado que:$$ \int(\ln x)^ndx=x\big(\ln x\big)^n-n\int\big(\ln x\big)^{n-1}dx$$
-
-Calculando $\dis \int(\ln x)^7dx$
-\begin{align*}
- \dis \int(\ln x)^7dx &= x(\ln x)^7 - 7(x(\ln x)^6 - 6(x(\ln x)^5 - 5(x(\ln x)^4-4(x(\ln x)^3-3(x(\ln x)^2-2(x\ln x - x(\ln x)^0))))))  \\
- 		&= x(\ln x)^7 - 7x(\ln x)^6 + 42x(\ln x)^5 - 210x(\ln x)^4 + 840x(\ln x)^3- 2520x(\ln x)^2 + 5040x\ln x - 5040x + C
-\end{align*}
-
-
+Obteniendo la siguiente formula de reducción:$$\dis \int (\sin x)^n e^x dx\quad =e^x(\sin x)^n  - n \dis \int e^x \cos(x)(\sin x)^{(n-1)}  \, dx$$
+\textcolor{red}{2 puntos por llegar a demostrar lo pedido}
 
 
 \end{document}
