@@ -1,2 +1,2 @@
-# Guias_C2
-Aguias realizadas en latex para la ayudantía de cálculo 2 en la UDP
+# Guias_Latex
+Aguias realizadas en latex para la escuela de Ciencias Básicas en la UDP
