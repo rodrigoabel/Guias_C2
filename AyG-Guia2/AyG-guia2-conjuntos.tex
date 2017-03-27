@@ -1,0 +1,327 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[left=1.5cm,top=2cm,right=2.5cm,bottom=4cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[activeacute,spanish]{babel}
+\usepackage{multirow}	% Para poder unir filas en las tablas
+\usepackage{colortbl}	% Para colorear tablas
+\usepackage{latexsym,amssymb,oldlfont,amsmath}
+\usepackage{graphicx,graphics}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{dsfont} %para poner numero reales
+
+
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\si}{{\mathcal S}^n}
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % Cambia formato salida numeracion equation
+\makeatletter\@addtoreset {equation}{section} \makeatother % Tambien se usa
+\renewcommand{\baselinestretch}{1.3}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\definecolor{midnightblue}{rgb}{0.1,0.1,0.44}
+
+
+\newcommand{\dis}{\displaystyle}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\P{\mathbb{P}}
+\def\M{\mathcal{M}}
+\def\sin{\operatorname{sen}}
+\def\dim{\operatorname{dim}}
+\def\tr{\operatorname{tr}}
+\def\Im{\operatorname{Im}}
+\def\Ker{\operatorname{Ker}}
+
+
+
+\usepackage{etoolbox,fancyhdr,xcolor}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0.5pt}
+\pagestyle{fancy}
+\headheight=60pt %para cambiar el tamaño del encabezadox
+\fancyhead[L] %la "L" indica a la izquierda
+{
+\begin{minipage}{6cm}
+\includegraphics[width=0.9\textwidth]{logo_udp.eps}
+\end{minipage}
+}
+
+%\fancyhead[C]
+%{
+%\textbf{Cálculo II - Guía 1}
+%}
+
+
+%\fancyhead[R] %la "L" indica a la izquierda
+%{
+
+%}
+%\begin{minipage}{4cm}
+%\small %tamaño de letra pequeño
+%{
+%\textsf
+%{
+%Universidad de Chile\\
+%...}}
+%\end{minipage}}
+
+
+
+
+\fancyfoot[C]{\thepage\ de \pageref{LastPage}}
+%Página \thepage\ de \pageref{LastPage}}% Páginas Pares numeradas a la derecha
+%\fancyfoot[LO]{\thepage} % Páginas Impares numeradas a la izquierda
+
+\title{AyG-Guia-Conjuntos}
+
+\begin{document}
+
+\begin{center}
+\emph{Álgebra y Geometría} \\
+\emph{Guía Nº2 Ejercicios Resueltos} \\
+\emph{Primer Semestre 2017} \\
+\emph{Instituto de Ciencias Básicas}
+\end{center}
+
+\begin{center}
+\textbf{{\Large Conjuntos}}
+\end{center}
+
+\vspace{2mm}
+
+\textbf{Ejercicio:} Demuestre que $ A=B \Longleftrightarrow A \cup B = A \cap B $ \\
+
+\textbf{Solución:}
+
+    \fbox{$\Longrightarrow$} Sea $A=B$. Entonces $A \subseteq B$ y $ B \subseteq A$. \\
+
+    Si $A \subseteq B$ entonces $A \cap B = A$ y $A \cup B = B$. Pero como $A=B$, entonces $A \cap B = A \cup B$.
+
+     Por otro lado, si $B \subseteq A$ entonces $A \cap B = B$ y $A \cup B = A$. Pero como $A=B$, entonces $A \cap B = A \cup B$. \\
+
+     Así, $A=B \Longrightarrow A \cup B = A \cap B$\\
+
+      \fbox{$\Longleftarrow$} Sea $A \cup B = A \cap B$. \\
+
+      Se sabe que $A \cap B \subseteq A \subseteq A \cup B$. Pero como $A\cup B =A \cap B$ se tiene que $A \cap B = A = A\cup B$. \\
+
+      Por otro lado, también se sabe que $A \cap B \subseteq B \subseteq A \cup B$. Pero como $A\cup B =A \cap B$ se tiene que $A \cap B = B = A\cup B$. \\
+
+      Así, $ A \cup B = A \cap B \Longrightarrow A=B $
+\vspace{5mm}
+
+
+
+
+
+
+
+\textbf{Ejercicio:} Usando Álgebra de conjuntos, pruebe que:
+
+                    \begin{enumerate}
+                        \item[a)] $(A-B)-C = A-(B\cup C)$
+                        \item[b)] $(A-B)\cup(A\cup B)^c\cup(B-A) = (B\cap A)^c$
+                    \end{enumerate}
+
+\textbf{Solución:}
+
+    \begin{enumerate}
+        \item[a)]
+            \begin{align*}
+                (A-B)-C &= (A\cap B^c) \cap C^c \\
+                        &= A \cap (B^c \cap C^c) \\
+                        &= A \cap (B \cup C)^c \\
+                        &= A-(B\cup C)
+            \end{align*}
+            \newpage
+
+
+
+        \item[b)]
+            \begin{align*}
+                (A-B)\cup(A\cup B)^c\cup(B-A) &= (A\cap B^c)\cup(A^c \cap B^c)\cup(B\cap A^c) \\
+                                              &= \left[ (A \cup A^c) \cap B^c \right] \cup (B \cap A^c) \\
+                                              &= \left[ U \cap B^c \right] \cup (B \cap A^c) \\
+                                              &= B^c \cup (B \cap A^c) \\
+                                              &= (B^c \cup B) \cap (B^c \cup A^c) \\
+                                              &= U \cap (B^c \cup A^c) \\
+                                              &= B^c \cup A^c \\
+                                              &= (B \cap A)^c
+            \end{align*}
+    \end{enumerate}
+    \vspace{5mm}
+
+
+
+
+
+
+
+\textbf{Ejercicio:} Simplifique las expresiones de conjuntos:
+        \begin{enumerate}
+            \item[a)] $ (A \cap B)\cup(A-B)$
+            \item[b)] $ (A^c \cap B)^c \cup (B \cup A^c) \cup A$
+            \item[c)] $ [A-(A \cap B)] \cup [B-(A \cap B)] \cup (A \cap B)$
+        \end{enumerate}
+
+\textbf{Solución:}
+        \begin{enumerate}
+            \item[a)]
+                \begin{align*}
+                          (A \cap B)\cup(A-B) &= (A \cap B)\cup(A\cap B^c) \\
+                                              &= A \cap (B \cup B^c) \\
+                                              &= A \cap U \\
+                                              &= A
+                \end{align*}
+
+            \item[b)]
+                \begin{align*}
+                          (A^c \cap B)^c \cup (B \cup A^c) \cup A &= (A \cup B^c) \cup (B \cup A^c) \cup A  \\
+                                                                  &= A \cup B^c \cup B \cup A^c \cup A  \\
+                                                                  &= (A \cup A^c \cup A) \cup (B^c \cup B)  \\
+                                                                  &= U \cup U  \\
+                                                                  &= U
+                \end{align*}
+
+            \item[c)]
+                \begin{align*}
+                          [A-(A \cap B)] \cup [B-(A \cap B)] \cup (A \cap B) &= [A\cap(A \cap B)^c] \cup [B\cap(A \cap B)^c] \cup (A \cap B) \\
+                                                                             &= [A\cap(A^c \cup B^c)] \cup [B\cap(A^c \cup B^c)] \cup (A \cap B) \\
+                                                                             &= [ (A \cap A^c) \cup (A \cap B^c)] \cup [(B \cap A^c) \cup (B \cap B^c)] \cup (A \cap B) \\
+                                                                             &= [ \phi \cup (A \cap B^c)] \cup [(B \cap A^c) \cup \phi] \cup (A \cap B) \\
+                                                                             &= (A \cap B^c) \cup (B \cap A^c)  \cup (A \cap B) \\
+                                                                             &= (A \cap B^c) \cup [  B \cap (A^c \cup A)] \\
+                                                                             &= (A \cap B^c) \cup [  B \cap U] \\
+                                                                             &= (A \cap B^c) \cup B \\
+                                                                             &= (A \cup B) \cap (B^c \cup B) \\
+                                                                             &= (A \cup B) \cap U \\
+                                                                             &= A \cup B
+                \end{align*}
+        \end{enumerate}
+        \vspace{5mm}
+
+
+
+
+
+
+
+\textbf{Ejercicio:} Sean $\# (A-B)=18$, $\#(A\cup B)=70$ y $\#(A\cap B)=25$. Calcule $\#(B)$. \vspace{3mm}
+
+\textbf{Solución:}
+
+    Se tiene que
+        \begin{align*}
+            \#(A\cup B) &= \#(A-B) + \#(A \cap B) + \#(B-A) \\
+                     70 &= 18 + 25 + \#(B-A) \\
+                \#(B-A) &= 27
+        \end{align*}
+    y luego,
+        \begin{align*}
+            \#(B-A) &= \#(B) - \#(A \cap B) \\
+                 27 &= \#(B) - 25 \\
+              \#(B) &= 52
+        \end{align*}
+    \vspace{5mm}
+
+
+
+
+
+
+
+
+\textbf{Ejercicio:} Juan, en cada desayuno, come huevos o tocino (o ambos) durante un febrero en año bisiesto. Si come tocino $25$ mañanas y huevos $18$ mañanas, ¿cuántas mañanas come huevos con tocino? \vspace{3mm}
+
+\textbf{Solución:}
+
+    Sea $H$ el conjunto de días que Juan come huevos al desayuno, y $T$ el conjunto de días que Juan come tocino al desayuno.
+
+    Se tiene que $\#(H)=18$ y $\#(T)=25$. También se tiene que $\#(H \cup T) = 29$, debido a que es la cantidad de días que tiene febrero en un año bisiesto. Luego,
+        \begin{align*}
+            \#(H \cup T) &= \#(H) + \#(T) - \#(H \cap T) \\
+                 29 &= 18 + 25- \#(H \cap T) \\
+              \#(H \cap T) &= 14
+        \end{align*}
+
+    Juan come huevos con tocino durante 14 días.
+    \newpage
+
+
+
+
+
+
+
+
+\textbf{Ejercicio:} En una competencia artística, donde participaron 80 personas, se entregaron medallas en diferentes categorías: baile, teatro y música.
+
+                    Se tiene la siguiente información:
+
+                    \begin{itemize}
+                      \item 37 personas obtuvieron medalla en baile
+                      \item 33 personas obtuvieron medalla en teatro
+                      \item 14 personas obtuvieron medalla en baile y teatro
+                      \item 9  personas obtuvieron medalla en teatro y música
+                      \item 12 personas obtuvieron medalla en baile y música
+                      \item 58 personas obtuvieron medalla en teatro o música
+                      \item 7 personas no obtuvieron ninguna medalla
+                    \end{itemize}
+
+¿Cuántas personas recibieron medallas de todas las categorías?
+ \vspace{3mm}
+
+\textbf{Solución:}
+    Considere los conjuntos $A,B$ y $C$ como el número de personas que recibieron medallas en baile, teatro y música respectivamente.
+
+    Se tienen los siguientes datos:
+
+    \begin{center}
+    \begin{tabular}{lll}
+        $\#(A) = 37 $ & $\#(A \cap B) = 14$ & $\#(B \cup C) = 58$ \\
+        $\#(B)= 33$   & $\#(B \cap C) = 9 $ & $\#\left( (A \cup B \cup C)^c \right)= 7$ \\
+        $\#(U)=80$    & $\#(B \cap C) = 12$ &  \\
+    \end{tabular}
+    \end{center}
+
+    Primero se observa que
+        \begin{align*}
+            \#(A \cup B \cup C) &= \#(A) + \#(B) + \#(C) - \#(A \cap B) - \#(A \cap B) - \#(A \cap B) + \#(A \cap B \cap C) \\
+            \#(A \cup B \cup C) &= 37 + 33 + \#(C) - 14 - 12 - 9 + \#(A \cap B \cap C) \\
+            \#(A \cup B \cup C) &= 35 +  \#(C) + \#(A \cap B \cap C) \\
+            \#(A \cap B \cap C) &= \#(A \cup B \cup C) - \#(C)- 35
+        \end{align*}
+
+    Por otro lado, se obtiene el valor de $\#(C)$:
+        \begin{align*}
+            \#(B \cup C) &= \#(B) + \#(C) - \#(B \cap C) \\
+                      58 &= 33 + \#(C) - 9 \\
+                   \#(C) &= 34
+        \end{align*}
+
+    y el valor de $\#(A \cup B \cup C)$:
+        \begin{align*}
+            \#\left( (A \cup B \cup C)^c \right)    &= 7 \\
+            \#(U) - \#\left(A \cup B \cup C \right) &= 7 \\
+            80 - \#\left(A \cup B \cup C \right)    &= 7 \\
+            \#\left(A \cup B \cup C \right)         &= 73 \\
+        \end{align*}
+
+
+    Y así, reemplazando estos valores en la primera expresión deducida, se obtiene el valor de $\#(A \cap B \cap C)$:
+    \begin{align*}
+            \#(A \cap B \cap C) &= 73 - 34 - 35 \\
+            \#(A \cap B \cap C) &= 4
+        \end{align*}
+
+    Luego, 4 personas obtuvieron medallas de todas las categorías.
+
+
+\end{document}
