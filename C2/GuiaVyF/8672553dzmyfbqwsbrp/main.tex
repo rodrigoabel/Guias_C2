@@ -1,0 +1,131 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[left=3cm,top=3cm,right=2.5cm,bottom=4cm]{geometry} 
+\usepackage[utf8]{inputenc}
+\usepackage[activeacute,spanish]{babel}
+\usepackage{multirow}	% Para poder unir filas en las tablas
+\usepackage{colortbl}	% Para colorear tablas
+\usepackage{latexsym,amssymb,oldlfont,amsmath}
+\usepackage{graphicx,graphics}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{dsfont} %para poner numero reales
+
+
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\si}{{\mathcal S}^n}
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % Cambia formato salida numeracion equation
+\makeatletter\@addtoreset {equation}{section} \makeatother % Tambien se usa
+\renewcommand{\baselinestretch}{1.3}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\definecolor{midnightblue}{rgb}{0.1,0.1,0.44}
+
+
+\newcommand{\dis}{\displaystyle}
+\renewcommand{\theenumii}{\arabic{enumii}}
+
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\M{\mathcal{M}_n(\mathbb{R})}
+\def\sin{\operatorname{sen}}
+\def\e{\operatorname{e}}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+
+
+
+\usepackage{etoolbox,fancyhdr,xcolor}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0.5pt}
+\pagestyle{fancy}
+\headheight=60pt %para cambiar el tamaño del encabezadox
+\fancyhead[L] %la "L" indica a la izquierda
+{
+\begin{minipage}{6cm}
+\includegraphics[width=0.9\textwidth]{logo_udp.eps}
+\end{minipage}
+}
+
+%\fancyhead[C]
+%{
+%\textbf{Cálculo II - Guía 1}
+%}
+
+
+%\fancyhead[R] %la "L" indica a la izquierda
+%{
+
+%}
+%\begin{minipage}{4cm}
+%\small %tamaño de letra pequeño
+%{
+%\textsf
+%{
+%Universidad de Chile\\
+%...}}
+%\end{minipage}}
+
+
+
+%\fancyfoot[C]{}
+%{
+%\begin{minipage}{10cm}
+%\color{midnightblue}
+%\begin{center}Casa Matriz: Monjitas 527 Piso 15 - Santiago de Chile\\
+%Fono (02)24367255 \end{center}
+%\end{minipage}
+%}
+\fancyfoot[C]{}
+%Página \thepage\ de \pageref{LastPage}}% Páginas Pares numeradas a la derecha
+%\fancyfoot[LO]{\thepage} % Páginas Impares numeradas a la izquierda
+
+\title{C2_Guía de Ejercicios de verdaderos o falsos}
+
+\begin{document}
+
+\begin{center}
+Cálculo II\\
+Guía de Ejercicios de verdaderos o falsos\\
+\end{center}
+\vspace{10mm}
+
+\begin{enumerate}
+
+
+\item Determine si las siguientes afirmaciones son verdaderas o falsas. Justifique.
+\begin{enumerate}[label=\emph{\alph*)}]
+\item $\dis \int \cos(kx)dx = \frac{1}{k}\sin(kx)+C$ con $k \in R - \left\{ 0\right\}$, $C \in R$
+\item $\dis \int \sin(kx)dx = -\frac{1}{k}\cos(kx)+C$ con $k \in R - \left\{ 0\right\}$, $C \in R$
+\end{enumerate}
+
+\item Determine si las siguientes afirmaciones son verdaderas o falsas. Justifique.
+\begin{enumerate}[label=\emph{\alph*)}]
+\item $\dis \int f(x) g(x)\, dx = \dis \int f(x)dx \int g(x)dx$
+\item $\dis \int f(x)dx(\int g(x)dx + \int h(x)dx) = \dis  \int f(x)dx\int g(x)dx + \int f(x)dx\int h(x)dx$
+\item $\dis \int (f(x) +  g(y))dx = \dis  \int f(x)dx +  g(y)x$
+\item $\dis \int g'(z) f(g(z))\, dz = \dis \int f(t)dt$
+\item $\dis \int xh(t)g(x^2)\, dx = \frac{h(t)}{2}\dis \int f(z)dz$
+\item $\dis \int 3x^2 \ln(x^3)f(t)\, dt = f(t)\dis \int \ln(u)du$
+\end{enumerate}
+
+\item  Determine si las siguientes afirmaciones son verdaderas o falsas. Justifique.
+\begin{enumerate}[label=\emph{\alph*)}]
+\item Un fabricante descubrió que el costo marginal cuando se producen $q$ unidades es \\ $3q2 -60q+400$ dólares por unidad. Si el costo total de producción de las 2 primeras unidades es $U\$900$, entonces  el costo total de producción de las 3 primeras unidades es $U\$1350$.
+\item Una compañía actualmente produce $x$ unidades por semana de producto. Por experiencia, saben que el costo de producir una unidad más cuando la producción es $x$ unidades está dada por la función costo marginal $C'(x)= 25-0.02x$, entonces de acuerdo a ese costo marginal  el costo extra para elevar la producción de 150 a 200 unidades  es $\$1075$. 
+\item El ingreso marginal de una empresa está dado por $R'(x) =15-0,01x$ donde $x$ es cantidad de artículos vendidos. Suponiendo que el ingreso es cero cuando no se venden unidades y que cada producto que produce y vende la empresa  se vende a un precio $p$, entonces la relación entre el precio $p$ y la cantidad $x$ es $p= 15-0,005x$.
+
+\end{enumerate}
+
+\end{enumerate}
+\vspace{15mm}
+
+Edición de la guía: Sara Arancibia y Rodrigo Ábel
+\end{document}
