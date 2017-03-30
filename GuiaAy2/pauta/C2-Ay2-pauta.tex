@@ -1,0 +1,494 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[left=3cm,top=3cm,right=2.5cm,bottom=4cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[activeacute,spanish]{babel}
+\usepackage{multirow}	% Para poder unir filas en las tablas
+\usepackage{colortbl}	% Para colorear tablas
+\usepackage{latexsym,amssymb,oldlfont,amsmath}
+\usepackage{graphicx,graphics}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+
+
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\si}{{\mathcal S}^n}
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % Cambia formato salida numeracion equation
+\makeatletter\@addtoreset {equation}{section} \makeatother % Tambien se usa
+\renewcommand{\baselinestretch}{1.3}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\definecolor{midnightblue}{rgb}{0.1,0.1,0.44}
+
+
+\newcommand{\dis}{\displaystyle}
+\renewcommand{\theenumii}{\arabic{enumii}}
+
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\M{\mathcal{M}_n(\mathbb{R})}
+\def\sin{\operatorname{sen}}
+\def\e{\operatorname{e}}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+
+
+
+\usepackage{etoolbox,fancyhdr,xcolor}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0.5pt}
+\pagestyle{fancy}
+\headheight=60pt %para cambiar el tamaño del encabezadox
+\fancyhead[L] %la "L" indica a la izquierda
+{
+\begin{minipage}{6cm}
+\includegraphics[width=0.9\textwidth]{logo_udp.eps}
+\end{minipage}
+}
+
+%\fancyhead[C]
+%{
+%\textbf{Cálculo II - Guía 1}
+%}
+
+
+%\fancyhead[R] %la "L" indica a la izquierda
+%{
+
+%}
+%\begin{minipage}{4cm}
+%\small %tamaño de letra pequeño
+%{
+%\textsf
+%{
+%Universidad de Chile\\
+%...}}
+%\end{minipage}}
+
+
+
+%\fancyfoot[C]{}
+%{
+%\begin{minipage}{10cm}
+%\color{midnightblue}
+%\begin{center}Casa Matriz: Monjitas 527 Piso 15 - Santiago de Chile\\
+%Fono (02)24367255 \end{center}
+%\end{minipage}
+%}
+\fancyfoot[C]{}
+%Página \thepage\ de \pageref{LastPage}}% Páginas Pares numeradas a la derecha
+%\fancyfoot[LO]{\thepage} % Páginas Impares numeradas a la izquierda
+
+\title{C2_Ay2_pauta}
+
+\begin{document}
+
+\begin{center}
+Cálculo II\\
+Ayudantía Nº2 - Pauta\\
+Primer Semestre 2017
+\end{center}
+
+
+\begin{enumerate}
+
+
+\item Calcule las siguientes integrales de funciones
+trigonom\'{e}tricas.
+\begin{enumerate}[label=\emph{\alph*)}]
+\item $\dis \int x\sin^3(x^2)\, dx$\\
+
+Utilizamos la siguiente sustitución:
+\begin{align*}
+ u  &=  x^2  &    \\
+ du &= 2x  \, dx     &   x \, dx &= \frac{du}{2}
+\end{align*}
+\dotfill [1 punto]
+
+
+Obtenemos lo siguiente:
+
+
+
+\begin{align*}
+ \int \frac{\sin^3(u)}{2} \, du  &=  \frac{1}{2} \int \sin(u)(1-\cos^2(u)) \, du\\
+							     &=  \frac{1}{2} \int \sin(u) \, du - \frac{1}{2} \int \cos^2(u)\sin(u) \, du  \\
+                                 &=  - \frac{1}{2}  \cos(u)  + \frac{1}{2} \frac{\cos^3(u)}{3} + C   \\
+                                 &=  - \frac{1}{2}  \cos(x^2)  + \frac{1}{2} \frac{\cos^3(x^2)}{3} + C   \\
+\end{align*}
+\dotfill [1 punto]
+
+\newpage
+\item $\dis \int \frac{1-\sin x}{\cos x}\, dx$\\
+
+
+
+\begin{align*}
+ \dis \int \frac{1-\sin x}{\cos x}\, dx  &=    \int \frac{(1-\sin x)}{\cos x}\frac{(1+\sin x)}{(1+\sin x)}  \, dx\\
+ 										 &=    \int \frac{(1-\sin^2 x)}{\cos x(1+\sin x)}  \, dx\\
+                                         &=    \int \frac{\cos^2 x}{\cos x(1+\sin x)}  \, dx\\
+                                         &=    \int \frac{\cos x}{(1+\sin x)}  \, dx\\
+\end{align*}
+
+
+Utilizamos la siguiente sustitución:
+\begin{align*}
+u  &=  1 + \sin(x)      \\
+du &= \cos(x)  \, dx
+\end{align*}
+\dotfill [1 punto]
+
+Obtenemos lo siguiente:
+
+
+
+\begin{align*}
+ \dis \int \frac{1-\sin x}{\cos x}\, dx  &=  \int \frac{1}{u}  \, du\\
+							     &=  \ln (u) + C \\
+                                 &=  \ln (1+ \sin(x)) + C
+\end{align*}
+
+\end{enumerate}
+\dotfill [1 punto]
+\newpage
+
+\item Calcule las siguientes integrales de funciones
+trigonom\'{e}tricas.
+\begin{enumerate}[label=\emph{\alph*)}]
+\item $\dis \int \cot^5 x\sin^2 x\, dx$
+\begin{align*}
+ \dis \int \cot^5 x\sin^2 x\, dx  &=    \dis \int \frac{\cos^5 x}{\sin^5 x}\sin^2 x\, dx\\
+ 										 &=    \dis \int \frac{\cos^5 x}{\sin^3 x}\, dx\\
+                                         &=    \dis \int \frac{\cos x (1-\sin^2 x)^2 }{\sin^3 x}\, dx
+\end{align*}
+
+
+Utilizamos la siguiente sustitución:
+\begin{align*}
+u  &= \sin(x)      \\
+du &= \cos(x)  \, dx
+\end{align*}
+\dotfill [1 punto]
+
+Obtenemos lo siguiente:
+
+\begin{align*}
+ \dis \int \frac{ (1-\sin^2 x)^2 }{\sin^3 x}\cos x \, dx  &=    \dis \int \frac{(1-u^2)^2 }{u^3}\, du\\
+ 										 &=    \dis \int \frac{(1-2u^2 + u^4) }{u^3}\, du\\
+                                         &=    \dis \int \frac{1}{u^3 }\, dx - 2 \int \frac{u^2}{u^3 }\, dx + \int \frac{u^4}{u^3 }\, dx\\
+                                         &=    \dis \int \frac{1}{u^3 }\, dx - 2 \int \frac{1}{u }\, dx + \int u\, dx\\
+                                         &=    \dis -\frac{1}{2u^2 } - 2 \ln(u) +  u^2 + C\\
+                                         &=    \dis -\frac{1}{2(\sin(x))^2 } - 2 \ln(\sin(x)) +  (\sin(x))^2 + C
+\end{align*}
+\dotfill [1 punto]
+
+\newpage
+\item $\dis \int \cot^4 x\csc^4 x\, dx$
+\begin{align*}
+ \dis \int \cot^4 x\csc^4 x\, dx  &=    \dis \int \cot^4 x\csc^2 x(1+\cot^2 x)\, dx\\
+ 										 &=    \dis \int \cot^4 x\csc^2 x\, dx +\dis \int \cot^6 x\csc^2 x\, dx
+\end{align*}
+Utilizamos la siguiente sustitución:
+\begin{align*}
+u  &= \cot(x)    &  \\
+du &= -\csc^2(x)  \, dx  & \csc^2 (x) = -du
+\end{align*}
+\dotfill [1 punto]
+
+Obtenemos lo siguiente:
+\begin{align*}
+ \dis \int \cot^4 x\csc^2 x\, dx +\dis \int \cot^6 x\csc^2 x\, dx  &=    -\dis \int u^4 \, du -\dis \int u^6 \, du\\
+ 										 &=    -\dis \frac{u^5}{5} -\dis \frac{u^7}{7} + C\\
+                                          &=    -\dis \frac{(\cot (x))^5}{5} -\dis \frac{(\cot (x))^7}{7} + C
+\end{align*}
+\dotfill [1 punto]
+
+\end{enumerate}
+
+
+\newpage
+\item Calcule las siguientes integrales de funciones
+trigonom\'{e}tricas.
+\begin{enumerate}[label=\emph{\alph*)}]
+\item $\dis \int \sin^3 x\sqrt{\cos x}\, dx$
+\begin{align*}
+ \dis \int \sin^3 x\sqrt{\cos x}\, dx  &=    \dis \int (1-\cos^2 x)\sqrt{\cos x}\, \sin x \, dx
+\end{align*}
+Utilizamos la siguiente sustitución:
+\begin{align*}
+u  &= \cos(x)      \\
+du &= -\sen(x)  \, dx
+\end{align*}
+\dotfill [1 punto]
+
+Obtenemos lo siguiente:
+\begin{align*}
+ \dis \int (1-\cos^2 x)\sqrt{\cos x}\, \sin x \, dx  &=    -\dis \int (1-u^2)\sqrt{u} \, du\\
+ 													 &=    \dis -\int u^{\frac{1}{2}} \, du + \int u^{\frac{5}{2}} \, du\\
+                                                     &=    \dis -\frac{u^{\frac{3}{2}}}{\frac{3}{2}} + \frac{u^{\frac{7}{2}}}{\frac{7}{2}} + C\\
+                                                     &=    \dis -\frac{2}{3}u^{\frac{3}{2}} + \frac{2}{7}u^{\frac{7}{2}} + C\\
+                                                     &=    \dis -\frac{2}{3}(\cos x)^{\frac{3}{2}} + \frac{2}{7}(\cos x)^{\frac{7}{2}} + C\\
+\end{align*}
+\dotfill [1 punto]
+
+
+\newpage
+\item $\dis \int \sin(5x) \sin(2x)\, dx$\\
+
+Utilizando la siguiente identidad:
+\begin{align*}
+ \dis \sin A \cos B  &=    \frac{\sin (A+B) + \cos (A-B)}{2}
+\end{align*}
+
+reescribimos el integrando como $\dis \sin(5x)\cos(2x) = \frac{\sin(7x)+\cos(3x)}{2}$
+
+\dotfill [1 punto]
+
+Así, Oobtenemos lo siguiente:
+\begin{align*}
+ \dis \int \sin(5x) \sin(2x)\, dx  &=    \dis \int \frac{\sin (7x) + \cos (3x)}{2} \, dx\\
+ 								   &=    \dis \int \frac{\sin (7x)}{2} \, dx + \int \frac{\cos (3x)}{2} \, dx\\
+                                   &=    \dis \frac{-\cos (7x)}{14} + \frac{\sin (3x)}{6} + C
+\end{align*}
+\dotfill [1 punto]
+
+
+
+
+\end{enumerate}
+
+
+\newpage
+\item Calcule las siguientes integrales usando sustituci\'{o}n
+trigonom\'{e}trica.
+\begin{enumerate}[label=\emph{\alph*)}]
+\item $\dis \int \frac{x^2}{\sqrt{5-x^2}}\, dx$\\
+
+Utilizamos la siguiente sustitución trigonométrica:\\
+
+\begin{minipage}{.3\textwidth}
+\raggedright
+\begin{align*}
+x  &= \sqrt{5}\cos \theta      \\
+dx &= -\sqrt{5}\sin \theta  \, d\theta
+\end{align*}
+\end{minipage}% <---------------- Note the use of "%"
+\begin{minipage}{.3\textwidth}
+\raggedleft
+\begin{tikzpicture}[thick]
+\coordinate (O) at (0,0);
+\coordinate (A) at (4,0);
+\coordinate (B) at (0,2);
+\draw (O)--(A)--(B)--cycle;
+
+\tkzLabelSegment[below=2pt](O,A){$x$}
+\tkzLabelSegment[left=2pt](O,B){$\sqrt{5-x^2}$}
+\tkzLabelSegment[above right=2pt](A,B){$\sqrt{5}$}
+
+\tkzMarkAngle[fill= orange,size=0.8cm,%
+opacity=.4](B,A,O)
+\tkzLabelAngle[pos = 0.6](B,A,O){$\theta$}
+
+\end{tikzpicture}
+\end{minipage}
+
+
+Obtenemos lo siguiente:
+\begin{align*}
+ \dis \int \frac{x^2}{\sqrt{5-x^2}}\, dx  &=   - \dis \int \frac{(\sqrt{5}\cos \theta)^2}{\sqrt{5}\sin \theta}\sqrt{5}\sin \theta  \, d\theta\\
+ 										  &=  -  \dis \int \cos^2 \theta  \, d\theta
+\end{align*}
+\dotfill [1 punto]
+
+Utilizando la siguiente identidad:
+\begin{align*}
+ \dis \cos (2\theta)  &=    2\cos^2 \theta - 1\\
+ \dis \cos^2 \theta  &=    \frac{\cos (2\theta)+1}{2}
+\end{align*}
+Entonces obtenemos lo siguiente:
+\begin{align*}
+ \dis \int \cos^2 \theta  \, d\theta  &=   - \dis \int \frac{\cos (2\theta)+1}{2}  \, d\theta\\
+ 									  &=  -  \dis \int \frac{\cos (2\theta)}{2}  \, d\theta - \int \frac{1}{2} \, d\theta\\
+                                      &=    \dis -\frac{\sin (2\theta)}{4}  \, d\theta -  \frac{\theta}{2} + C\\
+                                      &=    \dis -\frac{2\sin \theta \cos \theta}{4}  \, d\theta -  \frac{\theta}{2} + C\\
+                                      &=    \dis - \frac{1}{2} (\frac{\sqrt{5-x^2}}{\sqrt{5}}\frac{x}{\sqrt{5}} + \arccos (\frac{x}{\sqrt{5}}))   + C\\
+                                      &=    \dis - \frac{x\sqrt{5-x^2}}{10} - \frac{\arccos (\frac{x}{\sqrt{5}}) }{2}   + C
+\end{align*}
+\dotfill [1 punto]
+
+
+\newpage
+\item $\dis \int \sqrt{2x-x^2}\, dx$\\
+
+\begin{align*}
+ \dis \int \sqrt{2x-x^2}\, dx  &=    \dis \int \sqrt{1 - (x-1)^2}\, dx
+\end{align*}
+
+Utilizamos la siguiente sustitución trigonométrica:\\
+
+\begin{minipage}{.3\textwidth}
+\raggedright
+\begin{align*}
+x -1  &= \cos \theta      \\
+dx &= -\sin \theta  \, d\theta
+\end{align*}
+\end{minipage}% <---------------- Note the use of "%"
+\begin{minipage}{.3\textwidth}
+\raggedleft
+\begin{tikzpicture}[thick]
+\coordinate (O) at (0,0);
+\coordinate (A) at (4,0);
+\coordinate (B) at (0,2);
+\draw (O)--(A)--(B)--cycle;
+
+\tkzLabelSegment[below=2pt](O,A){$x-1$}
+\tkzLabelSegment[left=2pt](O,B){$\sqrt{1- (x-1)^2}$}
+\tkzLabelSegment[above right=2pt](A,B){$1$}
+
+\tkzMarkAngle[fill= orange,size=0.8cm,%
+opacity=.4](B,A,O)
+\tkzLabelAngle[pos = 0.6](B,A,O){$\theta$}
+
+\end{tikzpicture}
+\end{minipage}
+
+Obtenemos lo siguiente:
+\begin{align*}
+ \dis \int \sqrt{1 - (x-1)^2}\, dx  &=    \dis \int \sin \theta (-\sin \theta)  \, d\theta\\
+ 									&=	 -\dis \int \sin^2 \theta  \, d\theta\\
+\end{align*}
+\dotfill [1 punto]
+
+Utilizando la siguiente identidad:
+\begin{align*}
+ \dis \cos (2\theta)  &=    1 - 2\sin^2 \theta \\
+ \dis \sin^2 \theta  &=    \frac{\cos (2\theta)-1}{2}
+\end{align*}
+Entonces obtenemos lo siguiente:
+\begin{align*}
+ -\dis \int \sin^2 \theta  \, d\theta  &=    -\dis \int \frac{\cos (2\theta)-1}{2}  \, d\theta \\
+ 									   &=	 -\dis \int \frac{\cos (2\theta)}{2}  \, d\theta + \int \frac{1}{2} \, d\theta\\
+                                       &=	 -\dis \ \frac{\sin (2\theta)}{4}  +  \frac{\theta}{2} + C\\
+                                       &=	 -\dis \ \frac{2\sin \theta \cos \theta}{4}  +  \frac{\theta}{2} + C\\
+                                       &=    \dis - \frac{(x-1)\sqrt{1-(x-1)^2}}{2} + \frac{\arccos (x-1) }{2}   + C
+\end{align*}
+
+\end{enumerate}
+\dotfill [1 punto]
+
+\newpage
+\item Calcule las siguientes integrales usando sustituci\'{o}n
+trigonom\'{e}trica.
+\begin{enumerate}[label=\emph{\alph*)}]
+\item $\dis \int \frac{1}{x^2\sqrt{16x^2-9}}\, dx$\\
+
+Utilizamos la siguiente sustitución trigonométrica:\\
+
+\begin{minipage}{.3\textwidth}
+\raggedright
+\begin{align*}
+x  &= \frac{3}{4} \sec \theta      \\
+dx &= \frac{3}{4} \sec \theta \tan \theta  \, d\theta
+\end{align*}
+\end{minipage}% <---------------- Note the use of "%"
+\begin{minipage}{.3\textwidth}
+\raggedleft
+\begin{tikzpicture}[thick]
+\coordinate (O) at (0,0);
+\coordinate (A) at (4,0);
+\coordinate (B) at (0,2);
+\draw (O)--(A)--(B)--cycle;
+
+\tkzLabelSegment[below=2pt](O,A){$3$}
+\tkzLabelSegment[left=2pt](O,B){$\sqrt{16x^2- 9}$}
+\tkzLabelSegment[above right=2pt](A,B){$4x$}
+
+\tkzMarkAngle[fill= orange,size=0.8cm,%
+opacity=.4](B,A,O)
+\tkzLabelAngle[pos = 0.6](B,A,O){$\theta$}
+
+\end{tikzpicture}
+\end{minipage}
+
+\dotfill [1 punto]
+
+Obtenemos lo siguiente:
+\begin{align*}
+ \dis \int \frac{1}{x^2\sqrt{16x^2-9}}\, dx  &=    \dis \int \frac{1}{(\frac{3}{4}\sec \theta)^2\, (3\tan \theta)} \frac{3}{4}\sec \theta \tan \theta \, d\theta\\
+ 									&=    \dis \frac{4}{9} \int \cos \theta \, d\theta\\
+                                    &=    \dis  \frac{4}{9}  \sen \theta + C\\
+                                    &=    \dis  \frac{4}{9}  \frac{\sqrt{16x^2-9}}{4x} + C\\
+                                    &=    \dis  \frac{\sqrt{16x^2-9}}{9x} + C\\
+\end{align*}
+\dotfill [1 punto]
+
+
+
+
+\newpage
+\item $\dis \int \sqrt{\e^{2t}-9} \, dt$\\
+
+Utilizamos la siguiente sustitución trigonométrica:\\
+
+\begin{minipage}{.3\textwidth}
+\raggedright
+\begin{align*}
+e^t  &= 3\sec \theta      \\
+e^t \, dt &= 3 \sec \theta \tan \theta  \, d\theta  \\
+ dt &=  \tan \theta  \, d\theta  \\
+\end{align*}
+\end{minipage}% <---------------- Note the use of "%"
+\begin{minipage}{.3\textwidth}
+\raggedleft
+\begin{tikzpicture}[thick]
+\coordinate (O) at (0,0);
+\coordinate (A) at (4,0);
+\coordinate (B) at (0,2);
+\draw (O)--(A)--(B)--cycle;
+
+\tkzLabelSegment[below=2pt](O,A){$3$}
+\tkzLabelSegment[left=2pt](O,B){$\sqrt{16x^2- 9}$}
+\tkzLabelSegment[above right=2pt](A,B){$4x$}
+
+\tkzMarkAngle[fill= orange,size=0.8cm,%
+opacity=.4](B,A,O)
+\tkzLabelAngle[pos = 0.6](B,A,O){$\theta$}
+
+\end{tikzpicture}
+\end{minipage}
+
+\dotfill [1 punto]
+
+Obtenemos lo siguiente:
+\begin{align*}
+ \dis \int \sqrt{\e^{2t}-9} \, dt &=    \dis \int \sqrt{9 \sec^2 \theta - 9} \tan \theta\, d\theta\\
+ 									&=    \dis \int 3\tan \theta \tan \theta\, d\theta\\
+                                    &=    \dis \int 3\tan^2 \theta \, d\theta\\
+                                    &=    \dis \int 3(\sec^2 \theta-1)  \, d\theta\\
+                                    &=    \dis 3\int \sec^2 \theta  \, d\theta - 3\int  d\theta\\
+                                    &=    \dis 3 \tan \theta - 3\theta + C\\
+                                    &=    \dis 3 (\frac{\sqrt{e^{2t}-9}}{3}) - 3\arcsec (\frac{e^t}{2}) + C\\
+\end{align*}
+
+\dotfill [1 punto]
+
+\end{enumerate}
+
+
+\end{enumerate}
+
+\vspace{10mm}
+
+
+
+
+\end{document}
