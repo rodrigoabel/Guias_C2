@@ -123,7 +123,7 @@ Obtenemos lo siguiente:
  \int \frac{\sin^3(u)}{2} \, du  &=  \frac{1}{2} \int \sin(u)(1-\cos^2(u)) \, du\\
 							     &=  \frac{1}{2} \int \sin(u) \, du - \frac{1}{2} \int \cos^2(u)\sin(u) \, du  \\
                                  &=  - \frac{1}{2}  \cos(u)  + \frac{1}{2} \frac{\cos^3(u)}{3} + C   \\
-                                 &=  - \frac{1}{2}  \cos(x^2)  + \frac{1}{2} \frac{\cos^3(x^2)}{3} + C   \\
+                                 &=  - \frac{1}{2}  \cos(x^2)  + \frac{1}{6} \cos^3(x^2) + C   \\
 \end{align*}
 \dotfill [1 punto]
 
@@ -186,8 +186,8 @@ Obtenemos lo siguiente:
  										 &=    \dis \int \frac{(1-2u^2 + u^4) }{u^3}\, du\\
                                          &=    \dis \int \frac{1}{u^3 }\, dx - 2 \int \frac{u^2}{u^3 }\, dx + \int \frac{u^4}{u^3 }\, dx\\
                                          &=    \dis \int \frac{1}{u^3 }\, dx - 2 \int \frac{1}{u }\, dx + \int u\, dx\\
-                                         &=    \dis -\frac{1}{2u^2 } - 2 \ln(u) +  u^2 + C\\
-                                         &=    \dis -\frac{1}{2(\sin(x))^2 } - 2 \ln(\sin(x)) +  (\sin(x))^2 + C
+                                         &=    \dis -\frac{1}{2u^2 } - 2 \ln(u) +  \frac{1}{2}u^2 + C\\
+                                         &=    \dis -\frac{1}{2(\sin(x))^2 } - 2 \ln(\sin(x)) +  \frac{1}{2}(\sin(x))^2 + C
 \end{align*}
 \dotfill [1 punto]
 
@@ -246,18 +246,18 @@ Obtenemos lo siguiente:
 
 Utilizando la siguiente identidad:
 \begin{align*}
- \dis \sin A \cos B  &=    \frac{\sin (A+B) + \cos (A-B)}{2}
+ \dis \sin A \sin B  &=    \frac{\cos (A-B) - \cos (A+B)}{2}
 \end{align*}
 
-reescribimos el integrando como $\dis \sin(5x)\cos(2x) = \frac{\sin(7x)+\cos(3x)}{2}$
+reescribimos el integrando como $\dis \sin(5x)\sin(2x) = \frac{\cos(3x)-\cos(7x)}{2}$
 
 \dotfill [1 punto]
 
 Así, Oobtenemos lo siguiente:
 \begin{align*}
- \dis \int \sin(5x) \sin(2x)\, dx  &=    \dis \int \frac{\sin (7x) + \cos (3x)}{2} \, dx\\
- 								   &=    \dis \int \frac{\sin (7x)}{2} \, dx + \int \frac{\cos (3x)}{2} \, dx\\
-                                   &=    \dis \frac{-\cos (7x)}{14} + \frac{\sin (3x)}{6} + C
+ \dis \int \sin(5x) \sin(2x)\, dx  &=    \dis \int \frac{\cos(3x)-\cos(7x)}{2} \, dx\\
+ 								   &=    \dis \int \frac{\cos (3x)}{2} \, dx - \int \frac{\cos (7x)}{2} \, dx\\
+                                   &=    \dis \frac{\sin (3x)}{6} - \frac{\sin (7x)}{14} + C
 \end{align*}
 \dotfill [1 punto]
 
@@ -278,8 +278,8 @@ Utilizamos la siguiente sustitución trigonométrica:\\
 \begin{minipage}{.3\textwidth}
 \raggedright
 \begin{align*}
-x  &= \sqrt{5}\cos \theta      \\
-dx &= -\sqrt{5}\sin \theta  \, d\theta
+x  &= \sqrt{5}\sin \theta      \\
+dx &= \sqrt{5}\cos \theta  \, d\theta
 \end{align*}
 \end{minipage}% <---------------- Note the use of "%"
 \begin{minipage}{.3\textwidth}
@@ -290,8 +290,8 @@ dx &= -\sqrt{5}\sin \theta  \, d\theta
 \coordinate (B) at (0,2);
 \draw (O)--(A)--(B)--cycle;
 
-\tkzLabelSegment[below=2pt](O,A){$x$}
-\tkzLabelSegment[left=2pt](O,B){$\sqrt{5-x^2}$}
+\tkzLabelSegment[below=2pt](O,A){$\sqrt{5-x^2}$}
+\tkzLabelSegment[left=2pt](O,B){$x$}
 \tkzLabelSegment[above right=2pt](A,B){$\sqrt{5}$}
 
 \tkzMarkAngle[fill= orange,size=0.8cm,%
@@ -304,24 +304,22 @@ opacity=.4](B,A,O)
 
 Obtenemos lo siguiente:
 \begin{align*}
- \dis \int \frac{x^2}{\sqrt{5-x^2}}\, dx  &=   - \dis \int \frac{(\sqrt{5}\cos \theta)^2}{\sqrt{5}\sin \theta}\sqrt{5}\sin \theta  \, d\theta\\
- 										  &=  -  \dis \int \cos^2 \theta  \, d\theta
+ \dis \int \frac{x^2}{\sqrt{5-x^2}}\, dx  &=  \dis \int \frac{5\sin^2 \theta}{\sqrt{5}\cos \theta}\sqrt{5}\cos \theta  \, d\theta\\
+ 										  &=  \dis 5 \int \sin^2 \theta  \, d\theta
 \end{align*}
 \dotfill [1 punto]
 
-Utilizando la siguiente identidad:
+Recordando que:
 \begin{align*}
- \dis \cos (2\theta)  &=    2\cos^2 \theta - 1\\
- \dis \cos^2 \theta  &=    \frac{\cos (2\theta)+1}{2}
+ \dis \sin^2 \theta  &= \frac{1-\cos 2\theta}{2}
 \end{align*}
-Entonces obtenemos lo siguiente:
+entonces obtenemos lo siguiente:
 \begin{align*}
- \dis \int \cos^2 \theta  \, d\theta  &=   - \dis \int \frac{\cos (2\theta)+1}{2}  \, d\theta\\
- 									  &=  -  \dis \int \frac{\cos (2\theta)}{2}  \, d\theta - \int \frac{1}{2} \, d\theta\\
-                                      &=    \dis -\frac{\sin (2\theta)}{4}  \, d\theta -  \frac{\theta}{2} + C\\
-                                      &=    \dis -\frac{2\sin \theta \cos \theta}{4}  \, d\theta -  \frac{\theta}{2} + C\\
-                                      &=    \dis - \frac{1}{2} (\frac{\sqrt{5-x^2}}{\sqrt{5}}\frac{x}{\sqrt{5}} + \arccos (\frac{x}{\sqrt{5}}))   + C\\
-                                      &=    \dis - \frac{x\sqrt{5-x^2}}{10} - \frac{\arccos (\frac{x}{\sqrt{5}}) }{2}   + C
+ \dis 5 \int \sin^2 \theta  \, d\theta  &= \frac{5}{2} \dis \int (1-\cos 2\theta)  \, d\theta\\
+ 									    &= \frac{5}{2} \dis \left( \theta -\frac{1}{2}\sin 2\theta  \ \right)+C \\
+                                        &= \frac{5}{2} \dis \left( \theta - \sin\theta \cos \theta  \ \right)+C \\
+                                        &= \frac{5}{2} \dis \left( \arcsin \frac{x}{\sqrt{5}} - \frac{x}{\sqrt{5}} \cdot \frac{\sqrt{5-x^2}}{\sqrt{5}} \right)+C \\
+                                        &= \frac{5}{2} \arcsin \frac{x}{\sqrt{5}} - \frac{x\sqrt{5-x^2}}{2} +C
 \end{align*}
 \dotfill [1 punto]
 
@@ -338,8 +336,8 @@ Utilizamos la siguiente sustitución trigonométrica:\\
 \begin{minipage}{.3\textwidth}
 \raggedright
 \begin{align*}
-x -1  &= \cos \theta      \\
-dx &= -\sin \theta  \, d\theta
+x -1  &= \sin \theta      \\
+dx &= \cos \theta  \, d\theta
 \end{align*}
 \end{minipage}% <---------------- Note the use of "%"
 \begin{minipage}{.3\textwidth}
@@ -350,8 +348,8 @@ dx &= -\sin \theta  \, d\theta
 \coordinate (B) at (0,2);
 \draw (O)--(A)--(B)--cycle;
 
-\tkzLabelSegment[below=2pt](O,A){$x-1$}
-\tkzLabelSegment[left=2pt](O,B){$\sqrt{1- (x-1)^2}$}
+\tkzLabelSegment[below=2pt](O,A){$\sqrt{1- (x-1)^2}$}
+\tkzLabelSegment[left=2pt](O,B){$x-1$}
 \tkzLabelSegment[above right=2pt](A,B){$1$}
 
 \tkzMarkAngle[fill= orange,size=0.8cm,%
@@ -363,23 +361,21 @@ opacity=.4](B,A,O)
 
 Obtenemos lo siguiente:
 \begin{align*}
- \dis \int \sqrt{1 - (x-1)^2}\, dx  &=    \dis \int \sin \theta (-\sin \theta)  \, d\theta\\
- 									&=	 -\dis \int \sin^2 \theta  \, d\theta\\
+ \dis \int \sqrt{1 - (x-1)^2}\, dx  &=    \dis \int \cos \theta \cdot \cos \theta  \, d\theta\\
+ 									&=	 \dis \int \cos^2 \theta \, d\theta\\
 \end{align*}
 \dotfill [1 punto]
 
-Utilizando la siguiente identidad:
+Recordando que:
 \begin{align*}
- \dis \cos (2\theta)  &=    1 - 2\sin^2 \theta \\
- \dis \sin^2 \theta  &=    \frac{\cos (2\theta)-1}{2}
+ \dis \cos^2 \theta  &= \frac{1+\cos 2\theta}{2}
 \end{align*}
-Entonces obtenemos lo siguiente:
+entonces obtenemos lo siguiente:
 \begin{align*}
- -\dis \int \sin^2 \theta  \, d\theta  &=    -\dis \int \frac{\cos (2\theta)-1}{2}  \, d\theta \\
- 									   &=	 -\dis \int \frac{\cos (2\theta)}{2}  \, d\theta + \int \frac{1}{2} \, d\theta\\
-                                       &=	 -\dis \ \frac{\sin (2\theta)}{4}  +  \frac{\theta}{2} + C\\
-                                       &=	 -\dis \ \frac{2\sin \theta \cos \theta}{4}  +  \frac{\theta}{2} + C\\
-                                       &=    \dis - \frac{(x-1)\sqrt{1-(x-1)^2}}{2} + \frac{\arccos (x-1) }{2}   + C
+ \dis \int \cos^2 \theta  \, d\theta   &= \frac{1}{2}\dis \int (1+\cos(2\theta))  \, d\theta \\
+ 									   &= \frac{1}{2} \left( \theta + \frac{1}{2}\sin(2\theta) \right)+C\\
+                                       &= \frac{1}{2} \left( \theta + \cos(\theta)\sin(\theta) \right)+C\\
+                                       &= \frac{1}{2} \left( \arcsin(x-1) + \sqrt{2x-x^2}(x-1) \right)+C
 \end{align*}
 
 \end{enumerate}
@@ -389,7 +385,7 @@ Entonces obtenemos lo siguiente:
 \item Calcule las siguientes integrales usando sustituci\'{o}n
 trigonom\'{e}trica.
 \begin{enumerate}[label=\emph{\alph*)}]
-\item $\dis \int \frac{1}{x^2\sqrt{16x^2-9}}\, dx$\\
+\item $\dis \int \frac{dx}{x^2\sqrt{16x^2-9}} $\\
 
 Utilizamos la siguiente sustitución trigonométrica:\\
 
@@ -456,8 +452,8 @@ e^t \, dt &= 3 \sec \theta \tan \theta  \, d\theta  \\
 \draw (O)--(A)--(B)--cycle;
 
 \tkzLabelSegment[below=2pt](O,A){$3$}
-\tkzLabelSegment[left=2pt](O,B){$\sqrt{16x^2- 9}$}
-\tkzLabelSegment[above right=2pt](A,B){$4x$}
+\tkzLabelSegment[left=2pt](O,B){$\sqrt{e^{2t}- 9}$}
+\tkzLabelSegment[above right=2pt](A,B){$e^t$}
 
 \tkzMarkAngle[fill= orange,size=0.8cm,%
 opacity=.4](B,A,O)
@@ -476,7 +472,7 @@ Obtenemos lo siguiente:
                                     &=    \dis \int 3(\sec^2 \theta-1)  \, d\theta\\
                                     &=    \dis 3\int \sec^2 \theta  \, d\theta - 3\int  d\theta\\
                                     &=    \dis 3 \tan \theta - 3\theta + C\\
-                                    &=    \dis 3 (\frac{\sqrt{e^{2t}-9}}{3}) - 3\arcsec (\frac{e^t}{2}) + C\\
+                                    &=    \dis \sqrt{e^{2t}-9} - 3\arcsec \left(\frac{e^t}{3}\right) + C\\
 \end{align*}
 
 \dotfill [1 punto]
