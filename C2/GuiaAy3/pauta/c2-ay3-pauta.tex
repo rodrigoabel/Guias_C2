@@ -1,0 +1,386 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[left=2cm,top=3cm,right=2.5cm,bottom=4cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[activeacute,spanish]{babel}
+\usepackage{multirow}	% Para poder unir filas en las tablas
+\usepackage{colortbl}	% Para colorear tablas
+\usepackage{latexsym,amssymb,oldlfont,amsmath}
+\usepackage{graphicx,graphics}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+
+
+
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\si}{{\mathcal S}^n}
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % Cambia formato salida numeracion equation
+\makeatletter\@addtoreset {equation}{section} \makeatother % Tambien se usa
+\renewcommand{\baselinestretch}{1.3}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\definecolor{midnightblue}{rgb}{0.1,0.1,0.44}
+
+
+\newcommand{\dis}{\displaystyle}
+\renewcommand{\theenumii}{\arabic{enumii}}
+
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\M{\mathcal{M}_n(\mathbb{R})}
+\def\sin{\operatorname{sen}}
+\def\e{\operatorname{e}}
+\DeclareMathOperator{\arcsec}{arcsec}
+\DeclareMathOperator{\arccot}{arccot}
+\DeclareMathOperator{\arccsc}{arccsc}
+
+
+
+\usepackage{etoolbox,fancyhdr,xcolor}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0.5pt}
+\pagestyle{fancy}
+\headheight=60pt %para cambiar el tamaño del encabezadox
+\fancyhead[L] %la "L" indica a la izquierda
+{
+\begin{minipage}{6cm}
+\includegraphics[width=0.9\textwidth]{logo_udp.eps}
+\end{minipage}
+}
+
+%\fancyhead[C]
+%{
+%\textbf{Cálculo II - Guía 1}
+%}
+
+
+%\fancyhead[R] %la "L" indica a la izquierda
+%{
+
+%}
+%\begin{minipage}{4cm}
+%\small %tamaño de letra pequeño
+%{
+%\textsf
+%{
+%Universidad de Chile\\
+%...}}
+%\end{minipage}}
+
+
+
+%\fancyfoot[C]{}
+%{
+%\begin{minipage}{10cm}
+%\color{midnightblue}
+%\begin{center}Casa Matriz: Monjitas 527 Piso 15 - Santiago de Chile\\
+%Fono (02)24367255 \end{center}
+%\end{minipage}
+%}
+\fancyfoot[C]{}
+%Página \thepage\ de \pageref{LastPage}}% Páginas Pares numeradas a la derecha
+%\fancyfoot[LO]{\thepage} % Páginas Impares numeradas a la izquierda
+
+\title{C2_Ay3_pauta}
+
+\begin{document}
+
+\begin{center}
+Cálculo II\\
+Ayudantía Nº3 - Pauta\\
+Primer Semestre 2017
+\end{center}
+
+Use descomposici\'{o}n en fracciones parciales, o utilice la sustitución de la tangente del ángulo medio, para calcular las siguientes integrales.
+
+
+\begin{enumerate}
+\item $\dis \int \frac{5x^2+3x-2}{x^3+2x^2}\, dx$\\
+
+Utilizando fracciones parciales:
+\begin{align*}
+ \dis  \frac{5x^2+3x-2}{x^3+2x^2}  &=  \dis  \frac{A}{x} + \dis  \frac{B}{x^2} + \dis  \frac{C}{(x+2)}  \\
+ \dis  5x^2+3x-2  &=  \dis  Ax(x+2)+ \dis  B(x+2) + \dis  Cx^2
+\end{align*}
+
+\dotfill \textbf{[1 punto]}
+
+Si $x=0$:
+\begin{align*}
+ \dis -2  &=  \dis  2B \\
+ \dis B  &=  \dis  -1
+\end{align*}
+Si $x=-2$:
+\begin{align*}
+ \dis 20-6-2  &=  \dis 4C \\
+ \dis C  &=  \dis  3
+\end{align*}
+Si $x=1$:
+\begin{align*}
+ \dis 5+3-2  &=  \dis 3A+3B+C \\
+ \dis 6  &=  \dis 3A+3(-1)+3\\
+ \dis 6  &=  \dis 3A\\
+ \dis A  &=  \dis 2
+\end{align*}
+
+\dotfill \textbf{[1 punto]}
+
+Obteniendo lo siguiente:
+\begin{align*}
+ \dis  \frac{5x^2+3x-2}{x^3+2x^2}  &=  \dis  \frac{2}{x} - \dis  \frac{1}{x^2} + \dis  \frac{3}{(x+2)}
+\end{align*}
+Luego al aplicarlo en la integral:
+\begin{align*}
+ \dis  \int \frac{5x^2+3x-2}{x^3+2x^2}\, dx  &=  \dis \int \frac{2}{x}\, dx - \dis \int \frac{1}{x^2}\, dx + \dis \int \frac{3}{(x+2)}\, dx   \\
+  &=  \dis 2 \ln x + \dis  \frac{1}{x} + \dis 3 \ln (x+2) + C
+\end{align*}
+\dotfill \textbf{[1 punto]}
+\newpage
+
+
+
+
+
+
+\item $\dis \int \frac{dx}{x^4-x^2}$\\
+
+Utilizando fracciones parciales:
+\begin{align*}
+ \dis  \frac{1}{x^4-x^2}  &=  \dis  \frac{A}{x} + \dis  \frac{B}{x^2} + \dis  \frac{C}{(x-1)} + \dis  \frac{D}{(x+1)}  \\
+ \dis  1  &=  \dis  Ax(x^2-1)+ \dis  B(x^2-1) + \dis  Cx^2(x+1) + \dis  Dx^2(x-1)
+\end{align*}
+
+\dotfill \textbf{[1 punto]}
+
+Si $x=0$:
+\begin{align*}
+ \dis 1  &=  \dis  -B \\
+ \dis B  &=  \dis  -1
+\end{align*}
+Si $x=1$:
+\begin{align*}
+ \dis 1  &=  \dis  2C \\
+ \dis C  &=  \dis  \frac{1}{2}
+\end{align*}
+Si $x=-1$:
+\begin{align*}
+ \dis 1  &=  \dis  -2D \\
+ \dis D  &=  \dis  -\frac{1}{2}
+\end{align*}
+Si $x=2$:
+\begin{align*}
+ \dis 1  &=  \dis  6A + 3B + 12C + 4D \\
+ \dis 1  &=  \dis  6A - 3 + 6 - 2 \\
+ \dis A  &=  \dis  0 \\
+\end{align*}
+
+\dotfill \textbf{[1 punto]}
+
+Obteniendo lo siguiente:
+\begin{align*}
+ \dis  \frac{1}{x^4-x^2}  &=  -\dis  \frac{1}{x^2} + \dis  \frac{1}{2(x-1)} - \dis  \frac{1}{2(x+1)}
+\end{align*}
+Luego al aplicarlo en la integral:
+\begin{align*}
+  \dis \int  \frac{1}{x^4-x^2} \, dx &=  -\dis \int \frac{1}{x^2}\, dx + \dis \int \frac{1}{2(x-1)}\, dx - \dis \int \frac{1}{2(x+1)}\, dx   \\
+  &=  \dis \frac{1}{x} + \frac{\ln (x-1)}{2} - \frac{\ln (x+1)}{2} + C
+\end{align*}
+\dotfill \textbf{[1 punto]}
+
+
+\newpage
+\item $\dis \int \frac{x^4}{x^4-1}\, dx$\\
+
+Cabe notar que no es posible realizar fracciones parciales al integrando directamente, ya que tanto el polinomio del numerador como el del denominador son de grado $4$. En su lugar, considere:
+
+\[ \int \frac{x^4}{x^4-1} dx = \int \frac{x^4-1+1}{x^4-1} dx = x + \int \frac{dx}{x^4-1} = x + \int \frac{dx}{(x^2+1)(x-1)(x+1)} \]
+
+Se aplica fracciones parciales a la integral resultante:
+
+\begin{align*}
+  \dis  \frac{1}{(x^2+1)(x-1)(x+1)}  &=  \dis  \frac{Ax+B}{x^2+1} + \dis  \frac{C}{x-1} + \dis  \frac{D}{x+1}  \\
+ \dis  1  &=  \dis  (Ax+B)(x^2-1) + \dis  C(x^2+1)(x+1) + \dis  D(x^2+1)(x-1)
+\end{align*}
+\dotfill \textbf{[1 punto]}
+
+Si $x=1$:
+\begin{align*}
+ \dis 1  &=  \dis  4C \\
+ \dis C  &=  \dis  \frac{1}{4}
+\end{align*}
+Si $x=-1$:
+\begin{align*}
+ \dis 1  &=  \dis  -4D \\
+ \dis D  &=  \dis  -\frac{1}{4}
+\end{align*}
+Si $x=0$:
+\begin{align*}
+ \dis 0  &=  \dis  -B +C -D \\
+\dis 0  &=  \dis  -B +\frac{1}{4} +\frac{1}{4}  \\
+\dis B  &=  \dis  -\frac{1}{2}
+\end{align*}
+Si $x=2$:
+\begin{align*}
+ \dis 1  &=  \dis  6A -\frac{3}{2} + \frac{15}{4} - \frac{5}{4} \\
+\dis A  &=  \dis  0
+\end{align*}
+\dotfill \textbf{[1 punto]}
+
+Luego al aplicarlo en la integral:
+\begin{align*}
+  \dis \int \frac{x^4}{x^4-1}  &=  x + \int \frac{-1/2}{x^2+1}dx + \int \frac{1/4}{x-1}dx + \int \frac{-1/4}{x+1} dx \\
+  \dis \int \frac{x^4}{x^4-1}  &=  x + -\frac{1}{2}\arctan(x) + \frac{1}{4}\ln(x-1) - \frac{1}{4}\ln(x+1) + C \\
+\end{align*}
+\dotfill \textbf{[1 punto]}
+
+
+
+
+\newpage
+\item $\dis \int \frac{dx}{2\sin x+\sin(2x)}$\\
+
+\begin{align*}
+ \dis \int \frac{dx}{2\sin x+\sin(2x)}  &= \dis \int \frac{dx}{2\sin x + 2\sin x \cos x} =  \dis \int \frac{dx}{2\sin x(1+\cos x)}
+\end{align*}
+
+Utilizamos la siguiente sustitución:\\
+
+\begin{minipage}{.3\textwidth}
+\raggedright
+\begin{align*}
+t  &= \tan \left(\frac{x}{2}\right)      \\
+dx &= \frac{2}{1+t^2}  \, dt \\
+\sin x &= \frac{2t}{1+t^2} \\
+\cos x &= \frac{1-t^2}{1+t^2}
+\end{align*}
+\end{minipage}% <---------------- Note the use of "%"
+\begin{minipage}{.3\textwidth}
+\raggedleft
+\begin{tikzpicture}[thick]
+\coordinate (O) at (0,0);
+\coordinate (A) at (4,0);
+\coordinate (B) at (0,2);
+\draw (O)--(A)--(B)--cycle;
+
+\tkzLabelSegment[below=2pt](O,A){$1$}
+\tkzLabelSegment[left=2pt](O,B){$t$}
+\tkzLabelSegment[above right=2pt](A,B){$\sqrt{1+t^2}$}
+
+\tkzMarkAngle[fill= orange,size=1.4cm,%
+opacity=.4](B,A,O)
+\tkzLabelAngle[pos = 1](B,A,O){$\frac{x}{2}$}
+
+\end{tikzpicture}
+\end{minipage}
+
+\dotfill \textbf{[1 punto]}
+
+
+Obtenemos lo siguiente:
+\begin{align*}
+ \dis \int \frac{dx}{2\sin x+\sin(2x)}  &=   \dis \int \frac{\frac{2 \, dt}{1+t^2}}{2(\frac{2t}{1+t^2})(1+\frac{1-t^2}{1+t^2})} \\
+I  &=   \dis \int \frac{(1+t^2)^2 \, dt}{4t(1+t^2)} \\
+I  &=   \dis \int \frac{(1+t^2) \, dt}{4t} \\
+I  &=   \dis \int \frac{dt}{4t} + \int \frac{t^2 \,dt}{4t} \\
+I  &=   \dis \int \frac{dt}{4t} + \int \frac{t\,dt}{4} \\
+I  &=   \dis  \frac{1}{4}\ln t +  \frac{t^2}{8} + C \\
+I  &=   \dis  \frac{1}{4}\ln \left(\tan \left(\frac{x}{2}\right)\right) +  \frac{1}{8} \tan^2 \left(\frac{x}{2}\right) + C
+\end{align*}
+
+\dotfill \textbf{[1 punto]}
+
+
+
+
+
+\newpage
+\item $\dis \int \frac{dx}{3\sin x+4\cos x}$\\
+
+Utilizamos la siguiente sustitución:\\
+
+\begin{minipage}{.3\textwidth}
+\raggedright
+\begin{align*}
+t  &= \tan \left(\frac{x}{2}\right)      \\
+dx &= \frac{2}{1+t^2}  \, dt \\
+\sin x &= \frac{2t}{1+t^2} \\
+\cos x &= \frac{1-t^2}{1+t^2}
+\end{align*}
+\end{minipage}% <---------------- Note the use of "%"
+\begin{minipage}{.3\textwidth}
+\raggedleft
+\begin{tikzpicture}[thick]
+\coordinate (O) at (0,0);
+\coordinate (A) at (4,0);
+\coordinate (B) at (0,2);
+\draw (O)--(A)--(B)--cycle;
+
+\tkzLabelSegment[below=2pt](O,A){$1$}
+\tkzLabelSegment[left=2pt](O,B){$t$}
+\tkzLabelSegment[above right=2pt](A,B){$\sqrt{1+t^2}$}
+
+\tkzMarkAngle[fill= orange,size=1.4cm,%
+opacity=.4](B,A,O)
+\tkzLabelAngle[pos = 1](B,A,O){$\frac{x}{2}$}
+
+\end{tikzpicture}
+\end{minipage}
+
+\dotfill \textbf{[1 punto]}
+
+
+Obtenemos lo siguiente:
+\begin{align*}
+ \dis \int \frac{dx}{3\sin x+4\cos x}  &=   \dis \int \frac{\frac{2 \, dt}{1+t^2}}{3(\frac{2t}{1+t^2})+4(\frac{1-t^2}{1+t^2}))} \\
+I  &=   \dis  \int \frac{2(1+t^2) \, dt}{(1+t^2)(6t+4-4t^2)} \\
+I  &=   \dis \int \frac{ dt}{(2-t)(2t+1)}
+\end{align*}
+
+\dotfill \textbf{[1 punto]}
+
+Utilizando fracciones parciales:
+\begin{align*}
+ \dis  \frac{ 1}{(2-t)(2t+1)}  &=  \dis  \frac{A}{2-t} + \dis  \frac{B}{2t+1} \\
+ \dis  1  &=  \dis  A(2t+1)+ \dis  B(2-t)
+\end{align*}
+
+Si $x=-\frac{1}{2}$:
+\begin{align*}
+ \dis 1  &=  \dis  B\frac{5}{2} \\
+ \dis B  &=  \dis  \frac{2}{5}
+\end{align*}
+Si $x=2$:
+\begin{align*}
+ \dis 1  &=  \dis  5A \\
+ \dis A  &=  \dis  \frac{1}{5}
+\end{align*}
+
+\dotfill \textbf{[1 punto]}
+
+Obteniendo lo siguiente:
+\begin{align*}
+ \dis  \frac{ 1}{(2-t)(2t+1)}  &=  \dis  \frac{1}{5(2-t)} + \dis  \frac{2}{5(2t+1)} \\
+ \dis  \frac{ 1}{(2-t)(2t+1)}  &=  \dis  -\frac{1}{5} \frac{1}{t-2} + \dis  \frac{2}{5(2t+1)} \\
+\end{align*}
+Luego volviendo a la integral:
+\begin{align*}
+  I  &=  \dis   \int   \left(-\frac{1}{5} \frac{1}{t-2} + \dis  \frac{2}{5(2t+1)}\right) \, dt \\
+  I  &=  \dis  -\frac{1}{5} \ln(t-2) + \frac{1}{5}   \ln(2t+1) + C \\
+I  &=  \dis  -\frac{1}{5} \ln{\left(\tan\left(\frac{x}{2}\right)-2\right)} + \frac{1}{5}   \ln\left(2\tan\left(\frac{x}{2}\right)+1\right) + C
+\end{align*}
+
+\dotfill \textbf{[1 punto]}
+
+
+
+\end{enumerate}
+\vspace{10mm}
+\end{document}
