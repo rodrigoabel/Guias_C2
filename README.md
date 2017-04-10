@@ -11,3 +11,5 @@ Aguias realizadas en latex para la escuela de Ciencias Básicas en la UDP
 ## Libros
 
 [Calculo_de_varias_variables_-_Stewart 6ta edición](Calculo_de_varias_variables_-_Stewart.pdf) - ([Solucionario](Solucionario_Calculo_Varias_Variable_Tra.pdf))
+[Calculo_una_Variable_6ta_edicion_-_James 6ta edición](Calculo_una_Variable_6ta_edicion_-_James.pdf) - ([Solucionario](Solucionario_Calculo_Stewart_Una_Variabl.pdf))
+[Algebra-y-trigonometria-con-geometria-analitica-12ed Swokowski](algebra-y-trigonometria-con-geometria-analitica-12ed.pdf) 
