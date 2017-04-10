@@ -10,4 +10,4 @@ Aguias realizadas en latex para la escuela de Ciencias Básicas en la UDP
 
 ## Libros
 
-[Calculo_de_varias_variables_-_Stewart 6ta edición](Calculo_de_varias_variables_-_Stewart.pdf)
+[Calculo_de_varias_variables_-_Stewart 6ta edición](Calculo_de_varias_variables_-_Stewart.pdf) - ([Solucionario](Solucionario_Calculo_Varias_Variable_Tra.pdf))
