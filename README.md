@@ -6,7 +6,10 @@ Aguias realizadas en latex para la escuela de Ciencias Básicas en la UDP
 [Ayudantía 1](C2/GuiaAy1/c2-ay1.pdf) - Técnicas de integración ([Pauta ej1](C2/GuiaAy1/Pauta/c2-ay1-ej1.pdf) - [Pauta ej2](C2/GuiaAy1/Pauta/c2-ay1-ej2.pdf) - [Pauta ej3](C2/GuiaAy1/Pauta/c2-ay1-ej3.pdf) - [Pauta ej4](C2/GuiaAy1/Pauta/c2-ay1-ej4.pdf) - [Pauta ej5](C2/GuiaAy1/Pauta/c2-ay1-ej5.pdf))<br />
 [Ayudantía 2](C2/GuiaAy2/c2-ay2.pdf) - Integrales trigonométricas y sustitución trigonométrica ([Pauta](C2/GuiaAy2/pauta/c2-ay2-pauta.pdf))<br />
 [Ayudantía 3](C2/GuiaAy3/c2-ay3.pdf) - Fracciones parciales y tangente del angulo medio ([Pauta](C2/GuiaAy3/pauta/c2-ay3-pauta.pdf))<br />
-[Ayudantía 4](C2/GuiaAy4/c2-ay4.pdf) - Máximo/mínimo y sumas de Riemann
+[Ayudantía 4](C2/GuiaAy4/c2-ay4.pdf) - Máximo/mínimo y sumas de Riemann ([Pauta](C2/GuiaAy4/pauta/c2-ay4-pauta.pdf))<br />
+[Ayudantía 5](C2/GuiaAy5/c2-ay5.pdf) - Integral definida ([Pauta](C2/GuiaAy5/pauta/c2-ay5-pauta.pdf))<br />
+[Ayudantía 6](C2/GuiaAy6/c2-ay6.pdf) - Integral definida 2 ([Pauta](C2/GuiaAy6/pauta/c2-ay6-pauta.pdf))<br />
+[Ayudantía 7](C2/GuiaAy7/c2-ay7.pdf) - Aplicaciones de la integral 
 
 
 ## Libros
