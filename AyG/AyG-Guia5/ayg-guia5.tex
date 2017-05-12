@@ -1,0 +1,548 @@
+\documentclass[a4paper,10pt]{article}
+\usepackage[left=1.5cm,top=2cm,right=2.5cm,bottom=4cm]{geometry} 
+\usepackage[utf8]{inputenc}
+\usepackage[activeacute,spanish]{babel}
+\usepackage{multirow}	% Para poder unir filas en las tablas
+\usepackage{colortbl}	% Para colorear tablas
+\usepackage{latexsym,amssymb,oldlfont,amsmath}
+\usepackage{graphicx,graphics}
+\usepackage{multicol}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{lastpage}
+\usepackage{enumitem}
+\usepackage{dsfont} %para poner numero reales
+\usepackage{tikz}
+\usepackage{tkz-euclide}
+\usetkzobj{all}
+\usetikzlibrary{calc,angles,positioning,intersections,quotes,decorations.markings}
+
+
+
+%\usepackage{fontspec}
+%\setmainfont{Times New Roman}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\si}{{\mathcal S}^n}
+\renewcommand{\theequation}{\thesection.\arabic{equation}} % Cambia formato salida numeracion equation
+\makeatletter\@addtoreset {equation}{section} \makeatother % Tambien se usa
+\renewcommand{\baselinestretch}{1.3}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\definecolor{midnightblue}{rgb}{0.1,0.1,0.44}
+
+
+\newcommand{\dis}{\displaystyle}
+\providecommand{\abs}[1]{\lvert#1\rvert}
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\P{\mathbb{P}}
+\def\M{\mathcal{M}}
+\def\sin{\operatorname{sen}}
+\def\dim{\operatorname{dim}}
+\def\tr{\operatorname{tr}}
+\def\Im{\operatorname{Im}}
+\def\Ker{\operatorname{Ker}}
+
+
+
+\usepackage{etoolbox,fancyhdr,xcolor}
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+%\renewcommand{\footrulewidth}{0.5pt}
+\pagestyle{fancy}
+\headheight=60pt %para cambiar el tamaño del encabezadox
+\fancyhead[L] %la "L" indica a la izquierda
+{
+\begin{minipage}{6cm}
+\includegraphics[width=0.9\textwidth]{logo_udp.eps}
+\end{minipage}
+}
+
+%\fancyhead[C]
+%{
+%\textbf{Cálculo II - Guía 1}
+%}
+
+
+%\fancyhead[R] %la "L" indica a la izquierda
+%{
+
+%}
+%\begin{minipage}{4cm}
+%\small %tamaño de letra pequeño
+%{
+%\textsf
+%{
+%Universidad de Chile\\
+%...}}
+%\end{minipage}}
+
+
+
+
+\fancyfoot[C]{\thepage\ de \pageref{LastPage}}
+%Página \thepage\ de \pageref{LastPage}}% Páginas Pares numeradas a la derecha
+%\fancyfoot[LO]{\thepage} % Páginas Impares numeradas a la izquierda
+
+\title{AyG-Guia5}
+
+\begin{document}
+
+\begin{center}
+\emph{Álgebra y Geometría} \\
+\emph{Guía Nº5 Ejercicios Resueltos} \\
+\emph{Primer Semestre 2017} \\
+\emph{Instituto de Ciencias Básicas}
+\end{center}
+
+\begin{center}
+\textbf{{\Large Cónicas 1}}
+\end{center}
+
+\vspace{2mm}
+
+
+\begin{enumerate}
+\item \textbf{Ejercicio:} Dos lados de un triangulo miden 5 y 10 centímetros, y el angulo que se forma entre ellos de 60º. Determine el perímetro del área del triangulo. \\
+
+\textbf{Solución:}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+
+    % draw the background
+    \draw [line width=1.5pt, fill=gray!2] (0,0) -- (60:4) -- (4,0) -- cycle;
+
+    \coordinate[label=left:$A$]  (A) at (0,0);
+    \coordinate[label=right:$B$] (B) at (4,0);
+    \coordinate[label=above:$C$] (C) at (2,3.464);
+
+    \coordinate[label=below:$10$](c) at ($ (A)!.5!(B) $);
+    \coordinate[label=left:$5$] (b) at ($ (A)!.5!(C) $);
+    \coordinate[label=right:$x$](a) at ($ (B)!.5!(C) $);
+
+    % angle alpha
+    \draw[fill=green!30] (0,0) -- (0:0.75cm) arc (0:60:.75cm);
+    \draw (0.35cm,0.25cm) node {$60$};
+
+    % angle beta
+    \begin{scope}[shift={(4cm,0cm)}]
+        \draw[fill=green!30] (0,0) -- (-180:0.75cm) arc (180:120:0.75cm);
+        \draw (150:0.5cm) node {$\beta$};
+    \end{scope}
+
+    % angle gamma
+    \begin{scope}[shift={(60:4)}]
+        \draw[fill=green!30] (0,0) -- (-120:.75cm) arc (-120:-60:.75cm);
+        \draw (-90:0.5cm) node {$\gamma$};
+    \end{scope}
+
+    % the triangle
+    \draw [line width=1.5pt] (A) -- (B) -- (C) -- cycle;
+  \end{tikzpicture}
+\end{center}
+
+
+Utilizando el teorema del coseno tenemos que:
+
+\begin{align*}
+\dis  a^2  &= b^2 + c^2 - 2*b*c*\cos (\alpha)\\
+ \dis  x^2  &= 5^2 + 10^2 - 2*5*10\cos (60)\\
+ \dis  x^2  &= 25 + 100 - 100* \frac{1}{2}\\
+ \dis  x^2  &= 25 + 100 - 50\\
+ \dis  x^2  &= 75\\
+ \dis  x  &= \sqrt{75}\\
+\end{align*}
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+
+    % draw the background
+    \draw [line width=1.5pt, fill=gray!2] (0,0) -- (60:4) -- (4,0) -- cycle;
+
+    \coordinate[label=left:$A$]  (A) at (0,0);
+    \coordinate[label=right:$B$] (B) at (4,0);
+    \coordinate[label=above:$C$] (C) at (2,3.464);
+
+    \coordinate[label=below:$10$](c) at ($ (A)!.5!(B) $);
+    \coordinate[label=left:$5$] (b) at ($ (A)!.5!(C) $);
+    \coordinate[label=right:$\sqrt{75}$](a) at ($ (B)!.5!(C) $);
+
+    % angle alpha
+    \draw[fill=green!30] (0,0) -- (0:0.75cm) arc (0:60:.75cm);
+    \draw (0.35cm,0.25cm) node {$60$};
+
+    % angle beta
+    \begin{scope}[shift={(4cm,0cm)}]
+        \draw[fill=green!30] (0,0) -- (-180:0.75cm) arc (180:120:0.75cm);
+        \draw (150:0.5cm) node {$\beta$};
+    \end{scope}
+
+    % angle gamma
+    \begin{scope}[shift={(60:4)}]
+        \draw[fill=green!30] (0,0) -- (-120:.75cm) arc (-120:-60:.75cm);
+        \draw (-90:0.5cm) node {$\gamma$};
+    \end{scope}
+
+    % the triangle
+    \draw [line width=1.5pt] (A) -- (B) -- (C) -- cycle;
+  \end{tikzpicture}
+\end{center}
+
+Ahora que conocemos los valores de todos los lados del triangulo utilizamos el Teorema de Seno para obtener los ángulos interiores que desconocemos.
+\begin{center}
+$\dis \frac{\sin(\alpha)}{a} = \frac{\sin(\beta)}{b} = \frac{\sin(\gamma)}{c}$
+\end{center}
+
+Buscamos $\beta$:
+\begin{align*}
+ \dis  \frac{\sin(60)}{\sqrt{75}}  &= \frac{\sin(\beta)}{5}\\
+ \dis  5*\sin (60)  &= \sqrt{75}* \sin(\beta)\\
+ \dis  \sin (\beta)  &= \frac{5* \frac{\sqrt{3}}{2}}{5\sqrt{3}}\\
+ \dis  \sin (\beta)  &= \frac{1}{2}\\
+ \dis  \beta  &= 30\\
+\end{align*}
+
+Buscamos $\gamma$:
+\begin{align*}
+ \dis  \frac{\sin(30)}{5}  &= \frac{\sin(\gamma)}{10}\\
+ \dis  \sin (\gamma)  &= \frac{10* \frac{1}{2}}{5}\\
+ \dis  \sin (\gamma)  &= 1\\
+ \dis  \gamma  &= 90\\
+\end{align*}
+
+Finalmente obteniendo lo siguiente:
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+
+    % draw the background
+    \draw [line width=1.5pt, fill=gray!2] (0,0) -- (60:4) -- (4,0) -- cycle;
+
+    \coordinate[label=left:$A$]  (A) at (0,0);
+    \coordinate[label=right:$B$] (B) at (4,0);
+    \coordinate[label=above:$C$] (C) at (2,3.464);
+
+    \coordinate[label=below:$10$](c) at ($ (A)!.5!(B) $);
+    \coordinate[label=left:$5$] (b) at ($ (A)!.5!(C) $);
+    \coordinate[label=right:$\sqrt{75}$](a) at ($ (B)!.5!(C) $);
+
+    % angle alpha
+    \draw[fill=green!30] (0,0) -- (0:0.75cm) arc (0:60:.75cm);
+    \draw (0.35cm,0.25cm) node {$60$};
+
+    % angle beta
+    \begin{scope}[shift={(4cm,0cm)}]
+        \draw[fill=green!30] (0,0) -- (-180:0.75cm) arc (180:120:0.75cm);
+        \draw (150:0.5cm) node {$30$};
+    \end{scope}
+
+    % angle gamma
+    \begin{scope}[shift={(60:4)}]
+        \draw[fill=green!30] (0,0) -- (-120:.75cm) arc (-120:-60:.75cm);
+        \draw (-90:0.5cm) node {$90$};
+    \end{scope}
+
+    % the triangle
+    \draw [line width=1.5pt] (A) -- (B) -- (C) -- cycle;
+  \end{tikzpicture}
+\end{center}
+\newpage
+
+\item \textbf{Ejercicio:} Dos lados de un paralelógramo están dados por las ecuaciones $l_1:x+2y+4=0$ y $l_2:5x+3y-1=0$.\\
+Si el punto de intersección de sus diagonales es $E(3,0)$ encuentre las ecuaciones de los otros lados del paralelógramo.\\
+
+\textbf{Solución:}
+
+\begin{center}
+\begin{tikzpicture}
+
+%Parallelogram ABCD and its diagonals are drawn.
+\coordinate (A) at (0,0);
+\coordinate (B) at (105:3);
+\coordinate (C) at ($(B) +(5,0)$);
+\coordinate (D) at ($(C) +(-75:3)$);
+
+\draw (A) -- (B) -- (C) -- (D) -- cycle;
+
+\draw[name path=path_AC] (A) -- (C);
+\draw[name path=path_BD] (B) -- (D);
+
+%The four vertices are labeled.
+\node at ($(A)! -2.5mm! (C)$){$A$};
+\node at ($(B)! -2.5mm! (D)$){$B$};
+\node at ($(C)! -2.5mm! (A)$){$C$};
+\node at ($(D)! -2.5mm! (B)$){$D$};
+
+%The intersection of the diagonals of the parallelogram is P.  To place
+%the label for P, the line segments are extended 4mm by an invisible
+%path command "above" P. The endpoints of these extensions are called
+%"label_P_left" and "label_P_right" and the midpoint of the line segment
+%between them is called "label_P".  A node command typesets "P" at the
+%point 2.5mm from P on the invisible line segment between P and label_P.
+\coordinate[name intersections={of=path_AC and path_BD, by={P}}];
+
+\coordinate (label_P_left) at ($(P)!-4mm!(D)$);
+\coordinate (label_P_right) at ($(P)!-4mm!(A)$);
+\coordinate (label_P) at ($(label_P_left)!0.5!(label_P_right)$);
+\node[blue] at ($(P)!3.2mm!(label_P)$){$E(3,0)$};
+
+
+%Opposite sides of the parallelogram are marked to indicate that they are
+%congruent.
+
+\coordinate (mark_for_AD) at ($(A)!0.5!(D)$);
+\draw ($(mark_for_AD) + (0pt,-4pt)$) -- ($(mark_for_AD) + (0pt,4pt)$);
+\node[blue] at ($(mark_for_AD) + (0pt,-8pt)$){$l_1$};
+\coordinate (mark_for_BC) at ($(B)!0.5!(C)$);
+\draw ($(mark_for_BC) + (0pt,-4pt)$) -- ($(mark_for_BC) + (0pt,4pt)$);
+\node[red] at ($(mark_for_BC) + (0pt,8pt)$){$l_3$};
+
+\coordinate (mark_for_AB) at ($(A)!0.5!(B)$);
+\coordinate (mark_for_AB_up) at ($(mark_for_AB)! 1pt! (B)$);
+\coordinate (mark_for_AB_down) at ($(mark_for_AB)! 1pt! (A)$);
+\draw ($(mark_for_AB_up)!4pt!-90:(A)$) -- ($(mark_for_AB_up)!4pt!-90:(B)$);
+\draw ($(mark_for_AB_down)!4pt!-90:(A)$) -- ($(mark_for_AB_down)!4pt!-90:(B)$);
+\node[blue] at ($(mark_for_AB) + (-8pt,0pt)$){$l_2$};
+
+\coordinate (mark_for_CD) at ($(C)!0.5!(D)$);
+\coordinate (mark_for_CD_up) at ($(mark_for_CD)! 1pt! (C)$);
+\coordinate (mark_for_CD_down) at ($(mark_for_CD)! 1pt! (D)$);
+\draw ($(mark_for_CD_up)!4pt!-90:(D)$) -- ($(mark_for_CD_up)!4pt!-90:(C)$);
+\draw ($(mark_for_CD_down)!4pt!-90:(D)$) -- ($(mark_for_CD_down)!4pt!-90:(C)$);
+\node[red] at ($(mark_for_CD) + (8pt,0pt)$){$l_4$};
+
+\end{tikzpicture}
+\end{center}
+
+
+Para resolver este ejercicio analizamos los datos que tenemos y cuales queremos obtener.\\
+\textcolor{blue}{\underline{Datos:}} Recta $l_1$, recta $l_2$ y el punto medio de las diagonales.\\
+\textcolor{red}{\underline{Objetivo:}} Encontrar las rectas $l_3$ y $l_4$.
+        \vspace{5mm}
+
+Como sabemos en un paralelógramo las caras opuestas tienen las mismas pendientes, en este caso $p_1=p_3$ y $p_2=p_3$.\\
+Como primer paso obtendremos las pendientes de las rectas $l_1$ y $l_2$
+
+\begin{minipage}{.4\textwidth}
+\begin{align*}
+ \dis  x+2y+4  &= 0\\
+ \dis  y &= -\frac{x}{2}-2\\
+ \dis  p_1 &= -\frac{1}{2}\\
+\end{align*}
+
+\end{minipage}% <---------------- Note the use of "%"
+\begin{minipage}{.4\textwidth}
+
+\begin{align*}
+ \dis  5x+3y-1  &= 0\\
+ \dis  y  &= -\frac{5x}{3}+\frac{1}{3}\\
+ \dis  p_2 &= -\frac{5}{3}\\
+\end{align*}
+
+\end{minipage}
+
+Para formar las rectas que estamos buscando demás de su pendiente necesitamos un punto que pertenezca a estas rectas. Para obtenerlo, primero buscamos el punto A intersectando las rectas $l_1$ y $l_2$. Luego obtendremos la distancia entre $A$
+ y $E$, para luego utilizando la formula de distancia para encontrar el punto $C$.\\
+ \vspace{5mm}
+ 
+ Buscando $A$:
+ 
+\begin{gather*}
+x+2y+4 =  0\\
+5x+3y-1 =  0
+\end{gather*}
+\begin{gather*}
+5x+10y+20=  0 \\ 
+5x+3y-1 =  0
+\end{gather*}
+\begin{gather*}
+7y+21=  0 \\
+y=-3
+\end{gather*}
+\begin{gather*}
+x+2(-3)+4 =  0\\
+x=2
+\end{gather*}
+Por lo tanto $A=(2,-3)$
+
+ \vspace{5mm}
+ 
+ 
+ Obtenemos la recta $\overline{AE}$:
+ \begin{gather*}
+(y-0)=\frac{0+3}{3-2}(x-3)\\
+y=3x-9
+\end{gather*}
+ 
+ 
+  \vspace{5mm}
+ 
+ Calculamos la distancia entre el punto $A=(2,-3)$ y $E=(3,0)$
+\begin{align*}
+D(A,E) &= \sqrt{(3-2)^2+(0+3)^2}\\
+&= \sqrt{1+9} \\
+&= \sqrt{10}
+\end{align*}
+
+Para encontrar el punto $C$ utilizamos la fórmula de distancia entre el punto $E$ y el punto $C$, cuya distancia es la misma que la del segmento $\overline{AE}$.
+
+\begin{align*}
+D(E,C) &= \sqrt{(3-x)^2+(0+y)^2}\\
+\sqrt{10} &= \sqrt{(3-x)^2+(0+y)^2}\\
+10 &= 9 - 6x + x^2 + y^2
+\end{align*}
+Ya que el punto que buscamos se encuentra en la misma recta que $\overline{AE}$, procedemos a reemplazar $y=3x-9$ para trabajar solo en una variable.
+
+\begin{align*}
+10 &= 9 - 6x + x^2 + (3x-9)^2\\
+10 &= 9 - 6x + x^2 + 9x^2 - 54x + 81\\
+0  &= 10x^2  - 60x + 80\\
+0  &= x^2  - 6x + 8\\
+0  &= (x-4)(x-2)\\
+\end{align*}
+Por lo tanto $x= 4$ y $x = 2$, pero como ya conocemos A que es $(2,-3)$ solo utilizaremos $x=4$ en la recta $y=3x-9$.
+ \begin{gather*}
+y=3x-9\\
+y= 3(4)-9\\
+y= 3
+\end{gather*}
+Entonces $C=(4,3)$
+
+\vspace{5mm}
+
+Finalmente buscaremos las rectas $l_3$ y $l_4$ utilizando $p_1=p_3=-\frac{1}{2}$, $p_2=p_4=-\frac{5}{3}$ y el punto $C=(4,3)$.\\
+
+Recta $l_3$ usando $p_3=-\frac{1}{2}$ y el punto $C=(4,3)$:
+
+ \begin{gather*}
+l_3: y-3 = -\frac{1}{2} (x-4)\\
+l_3: y= -\frac{x}{2} +5\\
+\end{gather*}
+
+Recta $l_4$ usando $p_3=-\frac{5}{3}$ y el punto $C=(4,3)$:
+
+ \begin{gather*}
+l_4: y-3 = -\frac{5}{3} (x-4)\\
+l_4: y= -\frac{5x}{3} +\frac{20}{3}+3\\
+l_4: y= -\frac{5x}{3} +\frac{29}{3}
+\end{gather*}
+
+\newpage
+
+\item \textbf{Ejercicio:} Considere la ecuación $x^2-8x+y^2-6y+20=0$ y el punto $P = (8,1)$ \\
+\begin{enumerate}
+\item Determine el centro y el radio de la circunferencia.
+\item Encuentre la ecuación principal de la recta que pasa por el centro de la circunferencia y el punto $P$
+\item Halle los puntos de intersección entre la recta obtenida y la circunferencia dada. 
+\end{enumerate}
+\textbf{Solución:}
+
+\begin{enumerate}
+\item Encontramos el centro y radio de la circunferencia.
+\begin{gather*}
+x^2-8x+y^2-6y+20=0\\
+x^2-8x+16-16+y^2-6y+9-9+20=0\\
+x^2-8x+16+y^2-6y+9=5\\
+(x-4)^2+(y-3)^2=5
+\end{gather*}
+El centro de la circunferencia esta en el punto $(4,3)$ y el radio es $\sqrt{5}$.
+
+\item Recta que pasa por $P=(8,1)$ y el centro de la circunferencia $(4,3)$
+\begin{gather*}
+(y-1)= \frac{(1-3)}{(8-4)}(x-8)\\
+y= -\frac{x}{2}+5
+\end{gather*}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=15cm]{ayg1.png}
+    \caption{Gráfica de la circunferencia y la recta obtenida}
+    \label{ej3}
+\end{figure}
+
+
+\item Puntos de intersección entre la recta $y= -\frac{x}{2}+5$ y la circunferencia $x^2-8x+y^2-6y+20=0$
+
+Para hacer un cálculo más simple utilizamos la función de la circunferencia factorizada $(x-4)^2+(y-3)^2=5$.
+
+\begin{gather*}
+(x-4)^2+(y-3)^2=5\\
+(x-4)^2+((-\frac{x}{2}+5)-3)^2=5\\
+(x-4)^2+(-\frac{x}{2}+2)^2=5\\
+(x-4)^2+(\frac{4-x}{2})^2=5\\
+(x-4)^2+\frac{(4-x)^2}{4}=5\\
+(x-4)^2+\frac{(x-4)^2}{4}=5\\
+\frac{5(x-4)^2}{4}=5\\
+(x-4)^2=4\\
+\abs{x-4}=2
+\end{gather*}
+Entonces $x=6$ y $x=2$.\\
+
+Luego utilizando la recta $y= -\frac{x}{2}+5$ encontramos los puntos.
+\begin{align*}
+P_1 = (6,2)\\ 
+P_2=(2,4)
+\end{align*}
+\end{enumerate}
+
+\newpage
+
+\item \textbf{Ejercicio:} Hallar la ecuación de la circunferencia que es tangente a la recta $l_1:x+y=3$ en el punto $(2,1)$ y cuyo centro se encuentra en la recta $3x-2y-6=0$\\
+
+\textbf{Solución:}
+
+Primero buscamos la recta perpendicular a $x+y=3$ que también se puede escribir $y=-x+3$.
+
+\begin{gather*}
+m_1 = -1\\
+m_1 * m_2= -1\\
+m_2 = 1
+\end{gather*}
+Hacemos la recta perpendicular con la pendiente $m_2= 1$ y el punto $(2,1)$.
+
+\begin{gather*}
+y-1= (1)(x-2)\\
+y=x-1
+\end{gather*}
+
+Luego, el centro de la circunferencia lo encontramos en la interceccion de las rectas $3x-2y-6=0$ y $y=x-1$
+\begin{gather*}
+3x-2y-6=0\\
+y=x-1
+\end{gather*}
+
+\begin{gather*}
+3x-2(x-1)-6=0\\
+3x-2x+2-6=0\\
+x=4
+\end{gather*}
+
+\begin{gather*}
+y=x-1\\
+y=4-1\\
+y=3
+\end{gather*}
+
+El centro de la circunferencia se encuentra en el punto $(4,3)$.\\
+
+Para obtener el radio calculamos la distancia entre el punto $(4,3)$ y $(2,1)$
+
+\begin{gather*}
+D= \sqrt{(3-1)^2+(4-2)^2}\\
+D= \sqrt{(2)^2+(2)^2}\\
+D= \sqrt{8} = 2\sqrt{2}\\
+\end{gather*}
+
+Por lo tanto la ecuación de la circunferencia es:
+
+\begin{gather*}
+(x-4)^2+(y-3)^2=8
+\end{gather*}
+
+
+ \end{enumerate}
+
+
+\end{document}
